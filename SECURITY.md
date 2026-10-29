@@ -6,7 +6,7 @@
 
 可复核记录：[当次安全检查](provenance/security-check.json)、[Excel 构建输入及校验](provenance/excel-bundle.json)、[运行时与打包依赖许可](provenance/production-dependencies.json)。开发者运行 `pnpm build`、`node scripts/licenses.mjs`、`pnpm check:security` 可重新检查；查询只发送公开依赖名称和版本。
 
-本次只公开 GitHub 源码，不发布 npm、不申请市场同步或官方认证。
+源码与发行包使用相同的统计与隐私边界。npm 发布和市场收录不代表官方认证或安全背书；本项目仍标记为实验性扩展。
 
 ## 上轮问题及本次处理
 
@@ -45,6 +45,6 @@
 
 ## English
 
-This is a source preview, not an npm release or security certification. Version 0.5.2 rebuilds the Excel worker from the official Node entry with uuid 11.1.1, updates unzipper to 0.12.5 to remove binary/buffers, and upgrades Vitest/Vite to 5.0.5/8.3.5. The 2026-10-29 production and full dependency audits report zero known advisories; actual bundle inputs and license texts are also checked. This is a dated database result, not a zero-risk guarantee. Optional cloud access is disabled; no AWS SDK is added. Upstream deprecation notices may remain.
+This experimental extension is not officially certified. Publishing to npm or inclusion in the market is not a security endorsement. Version 0.5.2 rebuilds the Excel worker from the official Node entry with uuid 11.1.1, updates unzipper to 0.12.5 to remove binary/buffers, and upgrades Vitest/Vite to 5.0.5/8.3.5. The 2026-10-29 production and full dependency audits report zero known advisories; actual bundle inputs and license texts are also checked. This is a dated database result, not a zero-risk guarantee. Optional cloud access is disabled; no AWS SDK is added. Upstream deprecation notices may remain.
 
 Observation is off by default. When enabled, new host records may temporarily contain chat and sensitive tool results; bodies are processed locally and not retained or uploaded. History and exports contain usage metadata, are not fully anonymous, and local history is plaintext. Expiry cleanup runs on save/access; stopping/uninstalling is not a timed-erasure guarantee. Review files before sharing and never post secrets or real conversation logs in public issues.

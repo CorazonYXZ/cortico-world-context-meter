@@ -1,6 +1,6 @@
 # token计数 / Token count
 
-> **源码预览，暂未发布 npm。** v0.5.2 已处理上轮识别的依赖告警及许可不明链路；当次生产／全量已知漏洞查询均为 0，详见 [安全与隐私说明](SECURITY.md)。仍属实验性扩展，不代表官方认证、零风险或所有环境均兼容。
+> **实验性扩展。** v0.5.2 已处理上轮识别的依赖告警及许可不明链路；当次生产／全量已知漏洞查询均为 0，详见 [安全与隐私说明](SECURITY.md)。这些结果不代表官方认证、零风险或所有环境均兼容。
 
 面向 Coopanion 的本机 token 统计面板：查看扩展静态声明体积，按需观察宿主已有的请求用量与工具操作，并通过表格、环形图、临时历史和 JSON／Excel 导出查看结果。**不额外调用模型，不自动上传统计。**
 
@@ -14,11 +14,15 @@
 
 以下截图全部使用合成数据，展示界面与交互，不代表真实用户记录、模型账单或节省金额。
 
-![静态声明排行，合成数据](.github/assets/static-preview.png)
+![静态声明排行，合成数据](https://raw.githubusercontent.com/CorazonYXZ/cortico-world-context-meter/main/.github/assets/static-preview.png)
 
-![请求共享 token 环形图，合成数据](.github/assets/runtime-pie-preview.png)
+![请求共享 token 环形图，合成数据](https://raw.githubusercontent.com/CorazonYXZ/cortico-world-context-meter/main/.github/assets/runtime-pie-preview.png)
 
 ## 安装与更新
+
+**从扩展市场安装：** Coopanion 设置窗口 → 高级模式 → 扩展，搜索 `token计数` 或 `cortico-world-context-meter`，安装后重启 Coopanion 进程，在 World 总览启用并打开面板。[npm 包页面](https://www.npmjs.com/package/cortico-world-context-meter)提供版本和源码链接。市场同步可能存在延迟，请确认安装版本为 `0.5.2` 或更新版本。
+
+**从本机源码安装：**
 
 1. 从本仓库下载源码或克隆，保留完整项目目录，包括 `src`、`dist`、`assets` 和 `describe.json`。首次获取源码的用户，应先阅读 [安全与隐私说明](SECURITY.md)，了解本机统计与当前验证范围。
 2. 开发环境优先使用 Node.js 24 LTS（也可使用满足 Vitest 要求的 22.12+ 或 26+ 系列）及项目指定的 pnpm；开发安装和检查命令见下文。宿主目标及运行时要求不因测试工具升级而改变。
@@ -137,7 +141,9 @@ pnpm check:extension
 
 An offline World for static declaration ranking and opt-in observation of host-recorded model/tool usage. No extra model calls, uploads or host changes. Install in Coopanion v0.2.13: Settings → Advanced mode → Extensions → Manual install → select the project directory → restart the process → enable Token count in Worlds.
 
-**Source preview only; not published to npm in this submission.** Version 0.5.2 addresses the previously identified dependency advisories and removes the unclear-license chain. The recorded production and full dependency checks report zero known advisories; see [SECURITY.md](SECURITY.md). This is not official certification or a zero-risk guarantee. Screenshots use synthetic data. History and exports contain usage metadata and are not fully anonymous; local history is plaintext and expiry cleanup runs on save/access.
+**Experimental extension.** Version 0.5.2 addresses the previously identified dependency advisories and removes the unclear-license chain. The recorded production and full dependency checks report zero known advisories; see [SECURITY.md](SECURITY.md). This is not official certification or a zero-risk guarantee. Screenshots use synthetic data. History and exports contain usage metadata and are not fully anonymous; local history is plaintext and expiry cleanup runs on save/access.
+
+To install from the extension market, open Settings → Advanced mode → Extensions, search for `cortico-world-context-meter`, install and restart the Coopanion process, then enable Token count in Worlds. The [npm package page](https://www.npmjs.com/package/cortico-world-context-meter) lists versions and source links. Market indexing may take time; check that version 0.5.2 or newer is installed.
 
 Version 0.5.1 simplifies the panel copy: italic introductions with emphasized key phrases, and smaller muted gray-green footer notes. The persistent export explanation is removed; progress, a short success message and versioned errors remain. Observation state labels, statistics, chart, history and export formats are unchanged.
 
@@ -153,4 +159,4 @@ Sorting uses all linked rows before the 200-row display limit; default is comple
 
 Export targets the selected observation, includes its static snapshot and all retained metadata, and is independent of display limits/sorting. Excel has six localized sheets: Overview, Requests, Tools, Request tool links, World summary and Static ranking. Numeric cells remain numeric; unknowns are blank. Request totals are input + output only; subsets/tool estimates are never added again. Version 0.4.2 generates Excel in an offline Node worker and returns it through the host's binary interface; it creates no browser Worker or temporary workbook file. One job runs at a time, with a 60-second timeout and owner-scoped cancellation on unmount. Completion, failure, timeout and World stop release the thread. Versioned fixed error codes expose no raw exceptions. JSON remains compatible.
 
-Only allowlisted statistics are saved under the framework data directory's context-meter/history folder or manually exported. No chat, bodies, arguments, source file contents, paths, URLs, configuration or keys are retained or uploaded. No host-history replay occurs. Previously discarded v0.3 records cannot be recovered. Source/contract checks, tests and isolated browser QA use synthetic data; actual desktop-host installation remains user-verified. npm publication and market synchronization require a separate decision.
+Only allowlisted statistics are saved under the framework data directory's context-meter/history folder or manually exported. No chat, bodies, arguments, source file contents, paths, URLs, configuration or keys are retained or uploaded. No host-history replay occurs. Previously discarded v0.3 records cannot be recovered. Source/contract checks, tests and isolated browser QA use synthetic data; the maintainer has confirmed a complete v0.5.2 desktop-host trial. This does not guarantee compatibility with all environments.

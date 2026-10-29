@@ -1,6 +1,6 @@
 {
   "extensionVersion": "0.5.2",
-  "checkedAt": "2026-10-29T11:57:29.936Z",
+  "checkedAt": "2026-10-29T12:55:06.826Z",
   "registry": "https://registry.npmjs.org",
   "note": "Known-advisory results at this time, not security certification. All dependencies include the actual bundled Excel code.",
   "audits": {

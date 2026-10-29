@@ -941,7 +941,6 @@ var package_default = {
     "provenance",
     "THIRD_PARTY_NOTICES.md",
     "SECURITY.md",
-    "REVIEW_CHECKLIST.md",
     "VALIDATION.md"
   ],
   scripts: {
