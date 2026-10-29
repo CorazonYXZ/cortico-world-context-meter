@@ -4,7 +4,7 @@
 
 面向 Coopanion 的本机 token 统计面板：查看扩展静态声明体积，按需观察宿主已有的请求用量与工具操作，并通过表格、环形图、临时历史和 JSON／Excel 导出查看结果。**不额外调用模型，不自动上传统计。**
 
-项目维护者：[CorazonYXZ](https://github.com/CorazonYXZ)。[待核对清单](REVIEW_CHECKLIST.md) · [问题反馈](https://github.com/CorazonYXZ/cortico-world-context-meter/issues) · [第三方来源与许可](THIRD_PARTY_NOTICES.md)
+项目维护者：[CorazonYXZ](https://github.com/CorazonYXZ)。[问题反馈](https://github.com/CorazonYXZ/cortico-world-context-meter/issues) · [第三方来源与许可](THIRD_PARTY_NOTICES.md)
 
 版本 **0.5.2**。包名 `cortico-world-context-meter`，World id `context-meter`。目标为 Coopanion v0.2.13 / Cortico v0.2.9 / World API 6。
 
