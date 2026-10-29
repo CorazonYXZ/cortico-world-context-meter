@@ -1,3 +1,8 @@
+## 0.5.4
+
+- 保留完整中文原文并精简后附英文，将双语包描述控制为 254 字符，修复 npm 公开元数据截断长英文的问题。
+- Keep the complete Chinese description followed by concise English within npm's observed 255-character metadata limit. No functional changes.
+
 ## 0.5.3
 
 - 更新包描述，中文在前、英文在后，说明 Coopanion／DeepSeek 的静态和动态 Token 用量测试用途及估算限制。

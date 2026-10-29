@@ -6,7 +6,7 @@
 
 项目维护者：[CorazonYXZ](https://github.com/CorazonYXZ)。[问题反馈](https://github.com/CorazonYXZ/cortico-world-context-meter/issues) · [第三方来源与许可](THIRD_PARTY_NOTICES.md)
 
-版本 **0.5.3**。包名 `cortico-world-context-meter`，World id `context-meter`。目标为 Coopanion v0.2.13 / Cortico v0.2.9 / World API 6。
+版本 **0.5.4**。包名 `cortico-world-context-meter`，World id `context-meter`。目标为 Coopanion v0.2.13 / Cortico v0.2.9 / World API 6。
 
 离线比较扩展的静态声明，并按需观察宿主已有的模型请求与工具记录。不额外调用模型、不自动上传数据、不修改宿主。
 

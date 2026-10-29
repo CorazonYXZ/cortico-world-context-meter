@@ -158,7 +158,7 @@ try{
   await evaluate(`document.querySelector('[data-action=export]').click()`);
   await until(()=>downloaded);
   const saved=JSON.parse(await readFile(join(downloadPath,download.suggestedFilename),'utf8'));
-  assert.equal(saved.extension.displayName,'token计数');assert.equal(saved.extension.version,'0.5.3');
+  assert.equal(saved.extension.displayName,'token计数');assert.equal(saved.extension.version,'0.5.4');
   assert.equal(saved.static.rows.length,7);assert.equal(saved.runtime.requests.length,18);assert.equal(saved.runtime.tools.length,19);
   assert.equal(saved.runtime.requests[0].totalTokens,runtime.requests[0].input+runtime.requests[0].output);
   assert.equal(await evaluate(`document.querySelector('.cm-export-note').textContent`),'已生成导出文件。');
@@ -174,7 +174,7 @@ try{
   checks.excel.declaredAssetsOnly=true;
   checks.excel.browserWorkerAttempts=await evaluate('window.__browserWorkerAttempts');assert.equal(checks.excel.browserWorkerAttempts,0);
   checks.excel.csp=csp;assert.deepEqual(await evaluate('window.__cspViolations'),[]);
-  assert(calls.includes('export.xlsx'));assert.equal(await evaluate(`document.querySelector('.cm-export-note').dataset.version`),'0.5.3');
+  assert(calls.includes('export.xlsx'));assert.equal(await evaluate(`document.querySelector('.cm-export-note').dataset.version`),'0.5.4');
   assert.equal(await evaluate('document.querySelectorAll("details[open]").length'),0);
   checks.simple=await evaluate(`({columns:document.querySelectorAll('.cm-merged-table>thead>tr>th').length,requestRows:document.querySelectorAll('tr[data-kind=request]').length,
     total:document.querySelector('tr[data-kind=request] [data-column=total]').textContent,bodyFits:document.documentElement.scrollWidth<=innerWidth})`);

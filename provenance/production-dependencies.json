@@ -1,5 +1,5 @@
 {
-  "extensionVersion": "0.5.3",
+  "extensionVersion": "0.5.4",
   "scope": "installed runtime dependency and actual Excel worker build inputs",
   "dependencies": [
     {

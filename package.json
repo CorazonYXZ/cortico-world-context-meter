@@ -1,8 +1,8 @@
 {
   "name": "cortico-world-context-meter",
-  "version": "0.5.3",
+  "version": "0.5.4",
   "type": "module",
-  "description": "适用于 Coopanion 的 DeepSeek Token 用量估算插件。可用于测试不同扩展在静态上下文和动态交互中的 Token 消耗，帮助你定位 Token 主要消耗在哪里。请注意：估算结果仅供参考，实际用量可能与官网统计存在差异。 A DeepSeek token usage estimation plugin for Coopanion. Test token consumption across different extensions in static contexts and dynamic interactions to identify where most tokens are used. Please note: estimates are for reference only; actual usage may differ from the official dashboard.",
+  "description": "适用于 Coopanion 的 DeepSeek Token 用量估算插件。可用于测试不同扩展在静态上下文和动态交互中的 Token 消耗，帮助你定位 Token 主要消耗在哪里。请注意：估算结果仅供参考，实际用量可能与官网统计存在差异。 DeepSeek token estimates for Coopanion: compare extensions' static/dynamic usage. For reference only; may differ from official counts.",
   "license": "MIT",
   "author": "CorazonYXZ",
   "repository": {
