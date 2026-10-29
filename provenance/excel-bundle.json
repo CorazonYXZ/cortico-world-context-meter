@@ -1,5 +1,5 @@
 {
-  "extensionVersion": "0.5.2",
+  "extensionVersion": "0.5.3",
   "entry": "exceljs (official Node entry)",
   "file": "dist/xlsx-export-worker.mjs",
   "sha256": "5bac3095222a4a2fbf1bff947a24a59154b0138d007d19fab9201a8f115e5efd",

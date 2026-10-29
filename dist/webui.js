@@ -898,9 +898,9 @@ function exportCode(value, fallback) {
 // package.json
 var package_default = {
   name: "cortico-world-context-meter",
-  version: "0.5.2",
+  version: "0.5.3",
   type: "module",
-  description: "Offline declaration estimates and opt-in local runtime observation for Cortico. No extra model calls or telemetry.",
+  description: "\u9002\u7528\u4E8E Coopanion \u7684 DeepSeek Token \u7528\u91CF\u4F30\u7B97\u63D2\u4EF6\u3002\u53EF\u7528\u4E8E\u6D4B\u8BD5\u4E0D\u540C\u6269\u5C55\u5728\u9759\u6001\u4E0A\u4E0B\u6587\u548C\u52A8\u6001\u4EA4\u4E92\u4E2D\u7684 Token \u6D88\u8017\uFF0C\u5E2E\u52A9\u4F60\u5B9A\u4F4D Token \u4E3B\u8981\u6D88\u8017\u5728\u54EA\u91CC\u3002\u8BF7\u6CE8\u610F\uFF1A\u4F30\u7B97\u7ED3\u679C\u4EC5\u4F9B\u53C2\u8003\uFF0C\u5B9E\u9645\u7528\u91CF\u53EF\u80FD\u4E0E\u5B98\u7F51\u7EDF\u8BA1\u5B58\u5728\u5DEE\u5F02\u3002 A DeepSeek token usage estimation plugin for Coopanion. Test token consumption across different extensions in static contexts and dynamic interactions to identify where most tokens are used. Please note: estimates are for reference only; actual usage may differ from the official dashboard.",
   license: "MIT",
   author: "CorazonYXZ",
   repository: {

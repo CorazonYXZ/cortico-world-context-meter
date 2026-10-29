@@ -49,7 +49,7 @@ describe('manual JSON and binary Excel download',()=>{
     const c=setup('en');c.root.querySelector('select')!.value='xlsx';
     c.invokeBinary.mockRejectedValueOnce(new Error('PRIVATE_PATH E_XLSX_TIMEOUT PRIVATE_BODY'));
     c.button.click();await vi.waitFor(()=>expect(c.notice.dataset.errorCode).toBe('E_XLSX_TIMEOUT'));
-    expect(c.root.textContent).toContain('v0.5.2');expect(c.root.textContent).not.toContain('PRIVATE_');expect(c.button.disabled).toBe(false);
+    expect(c.root.textContent).toContain('v0.5.3');expect(c.root.textContent).not.toContain('PRIVATE_');expect(c.button.disabled).toBe(false);
     c.button.click();await vi.waitFor(()=>expect(c.click).toHaveBeenCalledTimes(1));expect(c.notice.dataset.errorCode).toBeUndefined();
   });
   it('classifies generic transport failure and invalid binary bodies without exposing their contents',async()=>{

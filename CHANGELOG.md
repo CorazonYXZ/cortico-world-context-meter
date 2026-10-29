@@ -1,3 +1,9 @@
+## 0.5.3
+
+- 更新包描述，中文在前、英文在后，说明 Coopanion／DeepSeek 的静态和动态 Token 用量测试用途及估算限制。
+- 仅更新描述、发行版本及对应验证记录；扩展功能、采集、计量、历史和导出格式不变。
+- Update the package description in Chinese followed by English, explaining static and dynamic token usage testing and estimation limits. No functional or data-handling changes.
+
 ## 0.5.2
 
 - 修复本轮已知依赖告警：固定 Vitest 5.0.5、Vite 8.3.5 和 UUID 11.1.1，移除旧测试工具及 Tinypool 链路；开发环境优先 Node.js 24，最低受支持的 22 系列为 22.12。

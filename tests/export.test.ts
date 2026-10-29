@@ -10,7 +10,7 @@ describe('complete metadata export',()=>{
     report.requests.push(request('boundary',[],{boundary:true}),request('reported',[],{basis:'reported'}));
     report.tools.push(tool('unmatched','absent',{textTokens:null,textBasis:null,imageCount:null}));
     const out=createExport(null,report,new Date('2026-10-29T12:00:00Z'));
-    expect(out.exportedAt).toBe('2026-10-29T12:00:00.000Z');expect(out.extension.version).toBe('0.5.2');
+    expect(out.exportedAt).toBe('2026-10-29T12:00:00.000Z');expect(out.extension.version).toBe('0.5.3');
     expect(out.runtime.requests).toHaveLength(207);expect(out.runtime.tools).toHaveLength(report.tools.length);
     expect(out.runtime.groups).toEqual(report.groups);expect(out.runtime.sources).toEqual(report.sources);
     expect(out.runtime.issues).toEqual({unmatched_result:11});expect(out.runtime.truncated).toBe(true);
