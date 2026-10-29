@@ -1,0 +1,69 @@
+{
+  "name": "cortico-world-context-meter",
+  "version": "0.5.1",
+  "type": "module",
+  "description": "Offline declaration estimates and opt-in local runtime observation for Cortico. No extra model calls or telemetry.",
+  "license": "MIT",
+  "author": "CorazonYXZ",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/CorazonYXZ/cortico-world-context-meter.git"
+  },
+  "homepage": "https://github.com/CorazonYXZ/cortico-world-context-meter#readme",
+  "bugs": {
+    "url": "https://github.com/CorazonYXZ/cortico-world-context-meter/issues"
+  },
+  "keywords": [
+    "cortico-world",
+    "cortico"
+  ],
+  "engines": {
+    "node": ">=22"
+  },
+  "packageManager": "pnpm@11.28.6",
+  "main": "./src/index.ts",
+  "cortico": {
+    "kind": "world",
+    "api": 6,
+    "displayName": "token计数",
+    "locales": { "zh": { "displayName": "token计数" }, "en": { "displayName": "Token count" } },
+    "webUiClient": "dist/webui.js",
+    "webUiStyle": "dist/webui.css",
+    "tags": ["diagnostics", "experimental"],
+    "describe": "describe.json"
+  },
+  "files": [
+    "src",
+    "README.md",
+    "CHANGELOG.md",
+    "describe.json",
+    "dist",
+    "assets",
+    "licenses",
+    "provenance",
+    "THIRD_PARTY_NOTICES.md",
+    "SECURITY.md",
+    "REVIEW_CHECKLIST.md",
+    "VALIDATION.md"
+  ],
+  "scripts": {
+    "test": "vitest run",
+    "typecheck": "tsc --noEmit && tsc -p tsconfig.web.json",
+    "build": "node scripts/build.mjs",
+    "check:extension": "node scripts/official-check.mjs"
+  },
+  "dependencies": { "@huggingface/tokenizers": "0.2.0", "exceljs": "4.4.0" },
+  "devDependencies": {
+    "@types/node": "^22.10.0",
+    "cortico": "0.2.9",
+    "esbuild": "0.28.2",
+    "jsdom": "26.1.0",
+    "@types/jsdom": "21.1.7",
+    "mineflayer": "4.37.1",
+    "mineflayer-pathfinder": "2.4.5",
+    "vec3": "0.2.0",
+    "tsx": "^4.19.2",
+    "typescript": "^5.7.2",
+    "vitest": "^2.1.8"
+  }
+}

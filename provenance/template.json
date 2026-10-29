@@ -1,0 +1,76 @@
+{
+  "repository": "https://github.com/Pal-AI-Lab/Cortico",
+  "tag": "v0.2.9",
+  "commit": "e42d4e442fef67ee87c47f92b6294f3743485bdd",
+  "directory": "templates/extension/world",
+  "files": [
+    {
+      "path": "templates/extension/world/.gitignore",
+      "gitBlob": "3c25e1e49c3790f278a9c6c06bfa16ee07e674e9"
+    },
+    {
+      "path": "templates/extension/world/AGENTS.md",
+      "gitBlob": "7f7f3629259a9af2a0de08feeddf2cb21ce5990f"
+    },
+    {
+      "path": "templates/extension/world/CHANGELOG.md",
+      "gitBlob": "716b38240a4f88a8bbefca064edeba292d517aaf"
+    },
+    {
+      "path": "templates/extension/world/CLAUDE.md",
+      "gitBlob": "4a73cfbdd46b1e8d9b8a1e402eb2c21515f077bc"
+    },
+    {
+      "path": "templates/extension/world/README.md",
+      "gitBlob": "016b25e50c51b8fdc67bb08e9ea5d4ef203876cb"
+    },
+    {
+      "path": "templates/extension/world/describe.json",
+      "gitBlob": "1d3b5e2d02898c5e3436ab37fa0839c142f87b3f"
+    },
+    {
+      "path": "templates/extension/world/package.json",
+      "gitBlob": "9c1867e3382ccf630d1105e310d468f1dfccfde9"
+    },
+    {
+      "path": "templates/extension/world/pnpm-workspace.yaml",
+      "gitBlob": "5ed0b5af0d45919f64c66edfb16a5f4512461fa1"
+    },
+    {
+      "path": "templates/extension/world/src/ENV_PROMPT.md",
+      "gitBlob": "e6497c07995401d2fe6caeb34c108f5d582d4674"
+    },
+    {
+      "path": "templates/extension/world/src/config.ts",
+      "gitBlob": "5cd00c46e49321306256444570a56cddcde63cac"
+    },
+    {
+      "path": "templates/extension/world/src/definition.ts",
+      "gitBlob": "aa0b8fe023b24648a4169e95a2262cbd6e3bf03f"
+    },
+    {
+      "path": "templates/extension/world/src/index.ts",
+      "gitBlob": "eec11df6557b746f5d2b6ffe9a36177d95b2cef9"
+    },
+    {
+      "path": "templates/extension/world/src/world.ts",
+      "gitBlob": "2d1f3fb8cfee062d23048669d3be69b86b43da80"
+    },
+    {
+      "path": "templates/extension/world/tests/helpers/fake-host.ts",
+      "gitBlob": "30c044bacb141faf6100349654002a64a3a17b15"
+    },
+    {
+      "path": "templates/extension/world/tests/world.test.ts",
+      "gitBlob": "1810607faa0d207c30808d08d884f78440902265"
+    },
+    {
+      "path": "templates/extension/world/tsconfig.json",
+      "gitBlob": "82784856d08593f15ad0f084dbf8c5571795f68f"
+    },
+    {
+      "path": "templates/extension/world/vitest.config.ts",
+      "gitBlob": "35b0cd6820748453ed2458c07b86a365b7e0e79c"
+    }
+  ]
+}

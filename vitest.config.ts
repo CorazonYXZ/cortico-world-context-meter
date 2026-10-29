@@ -1,0 +1,13 @@
+import { defineConfig } from 'vitest/config';
+
+export default defineConfig({
+  test: {
+    include: ['tests/**/*.test.ts'],
+    env: { CORTICO_LANGUAGE: 'zh' },
+    testTimeout: 20000,
+    pool: 'forks',
+    maxWorkers: 2,
+    minWorkers: 1,
+    setupFiles: ['tests/setup.ts'],
+  },
+});

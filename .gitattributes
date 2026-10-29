@@ -1,0 +1,4 @@
+* text=auto eol=lf
+# Tokenizer bytes are pinned by SHA-256; never normalize their line endings.
+assets/tokenizers/**/tokenizer.json -text
+*.png binary

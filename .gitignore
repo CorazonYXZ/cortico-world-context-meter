@@ -1,0 +1,12 @@
+node_modules/
+dist/
+*.log
+.validation/
+.preview/
+.tooling/
+.env
+.env.*
+*.tgz
+*.jsonl
+token-count-*.json
+token-count-*.xlsx

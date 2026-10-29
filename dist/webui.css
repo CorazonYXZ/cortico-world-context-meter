@@ -1,0 +1,695 @@
+/* src/webui/style.css */
+.context-meter {
+  --cm-ink: #2D4639;
+  --cm-accent: #4C6D5E;
+  --cm-soft: #9BB69A;
+  --cm-line: #E1E1D1;
+  --cm-surface: #F5F5F0;
+  --cm-alt: #EEEFE6;
+  --cm-hover: #E5ECDF;
+  box-sizing: border-box;
+  width: 100%;
+  max-width: 1480px;
+  min-width: 0;
+  padding: 24px;
+  border: 1px solid var(--cm-line);
+  border-radius: 20px;
+  background: var(--cm-surface);
+  color: var(--cm-ink);
+  overflow: hidden;
+  font:
+    14px/1.6 system-ui,
+    -apple-system,
+    "Segoe UI",
+    "Microsoft YaHei UI",
+    sans-serif;
+}
+.context-meter *,
+.context-meter *::before,
+.context-meter *::after {
+  box-sizing: border-box;
+}
+.context-meter h2 {
+  margin: 0 0 16px;
+  color: var(--cm-ink);
+  font-size: 23px;
+  line-height: 1.3;
+  font-weight: 650;
+  letter-spacing: -.02em;
+}
+.context-meter h3 {
+  margin: 22px 0 12px;
+  color: var(--cm-ink);
+  font-size: 16px;
+  line-height: 1.4;
+  font-weight: 650;
+}
+.context-meter p {
+  margin: 0;
+  overflow-wrap: anywhere;
+}
+.context-meter .cm-muted {
+  color: var(--cm-accent);
+  font-size: 13px;
+  font-weight: 400;
+  line-height: 1.65;
+}
+.context-meter .cm-intro {
+  display: grid;
+  gap: 8px;
+  padding: 14px 16px;
+  border: 1px solid var(--cm-line);
+  border-radius: 12px;
+  background: var(--cm-alt);
+}
+.context-meter .cm-intro p {
+  font-size: 13px;
+  line-height: 1.7;
+}
+.context-meter .cm-lead {
+  font-weight: 550;
+}
+.context-meter .cm-notes {
+  display: grid;
+  gap: 10px;
+  margin-top: 22px;
+  padding: 16px;
+  background: var(--cm-alt);
+  border-radius: 12px;
+}
+.context-meter .cm-notes .cm-footnote {
+  font-style: italic;
+}
+.context-meter .cm-copy-intro {
+  font-size: 13px;
+  font-style: italic;
+  line-height: 1.7;
+}
+.context-meter .cm-copy-intro strong {
+  font-size: 14px;
+  font-weight: 700;
+}
+.context-meter .cm-copy-list {
+  margin: 0;
+  padding-inline-start: 1.2em;
+  list-style-type: disc;
+  display: grid;
+  gap: 8px;
+}
+.context-meter .cm-copy-list li {
+  min-width: 0;
+  overflow-wrap: anywhere;
+}
+.context-meter .cm-copy-list li::marker {
+  content: "\2022  ";
+}
+.context-meter .cm-copy-notes {
+  color: #8A948C;
+  font-size: 11px;
+  font-style: italic;
+  font-weight: 400;
+  line-height: 1.6;
+}
+.context-meter .cm-warning {
+  margin: 10px 0;
+  border: 1px solid var(--cm-soft);
+  border-inline-start: 3px solid var(--cm-accent);
+  border-radius: 9px;
+  padding: 10px 13px;
+  background: var(--cm-hover);
+  color: var(--cm-ink);
+  font-size: 13px;
+  font-weight: 500;
+}
+.context-meter .cm-warning:empty {
+  display: none;
+}
+.context-meter .cm-controls {
+  display: flex;
+  align-items: end;
+  gap: 10px;
+  flex-wrap: wrap;
+  margin: 18px 0 10px;
+}
+.context-meter label {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  color: var(--cm-accent);
+  font-size: 12px;
+  font-weight: 550;
+}
+.context-meter select {
+  width: min(100%, 360px);
+  max-width: 100%;
+  min-width: 0;
+  min-height: 38px;
+  padding: 8px 30px 8px 12px;
+  border: 1px solid var(--cm-soft);
+  border-radius: 9px;
+  background: var(--cm-surface);
+  color: var(--cm-ink);
+  font: inherit;
+  font-size: 13px;
+}
+.context-meter button {
+  min-height: 38px;
+  padding: 8px 14px;
+  border: 1px solid var(--cm-soft);
+  border-radius: 9px;
+  background: var(--cm-surface);
+  color: var(--cm-ink);
+  font: inherit;
+  font-size: 13px;
+  font-weight: 550;
+  cursor: pointer;
+}
+.context-meter button:hover:not(:disabled) {
+  background: var(--cm-hover);
+  border-color: var(--cm-accent);
+}
+.context-meter button.cm-primary,
+.context-meter button[aria-pressed=true] {
+  background: var(--cm-accent);
+  border-color: var(--cm-accent);
+  color: var(--cm-surface);
+}
+.context-meter button.cm-primary:hover:not(:disabled) {
+  background: var(--cm-ink);
+}
+.context-meter button:disabled {
+  opacity: .5;
+  cursor: default;
+}
+.context-meter :is(button, select, .cm-table-wrap):focus-visible {
+  outline: 2px solid var(--cm-accent);
+  outline-offset: 3px;
+}
+.context-meter .cm-status {
+  min-height: 24px;
+  color: var(--cm-accent);
+  font-size: 12px;
+  margin: 4px 0 12px;
+}
+.context-meter .cm-summary {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(190px, 1fr));
+  gap: 12px;
+  margin: 12px 0 20px;
+}
+.context-meter.cm-runtime .cm-summary {
+  grid-template-columns: repeat(5, minmax(0, 1fr));
+}
+.context-meter .cm-stat {
+  display: flex;
+  min-width: 0;
+  flex-direction: column;
+  gap: 7px;
+  padding: 15px 16px;
+  border: 1px solid var(--cm-line);
+  border-radius: 12px;
+  background: var(--cm-alt);
+}
+.context-meter .cm-stat .cm-muted {
+  font-size: 12px;
+  line-height: 1.4;
+}
+.context-meter .cm-stat strong {
+  font-size: 19px;
+  line-height: 1.35;
+  font-weight: 650;
+  overflow-wrap: anywhere;
+  font-variant-numeric: tabular-nums;
+}
+.context-meter .cm-stat.cm-stat-text strong {
+  font-size: 14px;
+  line-height: 1.5;
+}
+.context-meter .cm-table-wrap {
+  width: 100%;
+  max-width: 100%;
+  min-width: 0;
+  overflow: auto;
+  border: 1px solid var(--cm-line);
+  border-radius: 12px;
+  background: var(--cm-surface);
+  isolation: isolate;
+}
+.context-meter .cm-table {
+  width: 100%;
+  border-collapse: separate;
+  border-spacing: 0;
+  color: var(--cm-ink);
+  font-size: 13px;
+  line-height: 1.5;
+}
+.context-meter .cm-table th,
+.context-meter .cm-table td {
+  text-align: start;
+  vertical-align: top;
+  padding: 12px 14px;
+  border: 0;
+  border-bottom: 1px solid var(--cm-line);
+  background: var(--cm-row-bg, var(--cm-surface));
+}
+.context-meter .cm-table thead th {
+  position: sticky;
+  top: 0;
+  z-index: 3;
+  background: var(--cm-line);
+  color: var(--cm-ink);
+  white-space: nowrap;
+  font-size: 12px;
+  font-weight: 650;
+}
+.context-meter .cm-table tbody tr:nth-child(even) {
+  --cm-row-bg: var(--cm-alt);
+}
+.context-meter .cm-table tbody tr:hover {
+  --cm-row-bg: var(--cm-hover);
+}
+.context-meter .cm-table tbody tr:last-child > td {
+  border-bottom: 0;
+}
+.context-meter .cm-table .cm-number {
+  text-align: end;
+  white-space: nowrap;
+  font-variant-numeric: tabular-nums;
+}
+.context-meter .cm-table .cm-total {
+  font-weight: 700;
+}
+.context-meter .cm-table .cm-tool-frozen {
+  position: sticky;
+  left: 0;
+  z-index: 2;
+  min-width: 210px;
+  width: 210px;
+  max-width: 260px;
+  background: var(--cm-row-bg, var(--cm-surface));
+  box-shadow: 5px 0 7px -7px var(--cm-accent);
+}
+.context-meter .cm-table thead .cm-tool-frozen {
+  z-index: 5;
+  background: var(--cm-line);
+}
+.context-meter .cm-merged-scroll {
+  max-height: 620px;
+  max-height: min(65vh, 620px);
+  scroll-behavior: auto;
+  overflow-anchor: none;
+}
+.context-meter .cm-merged-table {
+  min-width: 1160px;
+}
+.context-meter .cm-merged-table.cm-detailed {
+  min-width: 2620px;
+}
+.context-meter .cm-table-toolbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  flex-wrap: wrap;
+  margin: 24px 0 8px;
+}
+.context-meter .cm-table-toolbar h3 {
+  margin: 0;
+}
+.context-meter .cm-view-toggle {
+  display: flex;
+  padding: 3px;
+  gap: 3px;
+  background: var(--cm-line);
+  border-radius: 10px;
+}
+.context-meter .cm-view-toggle button {
+  min-height: 30px;
+  padding: 5px 13px;
+  border-color: transparent;
+  border-radius: 7px;
+}
+.context-meter .cm-table-caption {
+  margin: 0 0 10px;
+  color: var(--cm-accent);
+  font-size: 12px;
+  font-style: italic;
+}
+.context-meter [hidden] {
+  display: none !important;
+}
+.context-meter .cm-interactions {
+  display: flex;
+  justify-content: flex-end;
+  align-items: flex-start;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-bottom: 12px;
+}
+.context-meter .cm-disclosure {
+  max-width: 100%;
+  min-width: 0;
+  border: 1px solid var(--cm-line);
+  border-radius: 10px;
+  background: var(--cm-alt);
+}
+.context-meter .cm-disclosure[open] {
+  flex-basis: 100%;
+}
+.context-meter .cm-disclosure summary {
+  list-style: none;
+  cursor: pointer;
+  padding: 7px 12px;
+  text-align: right;
+  font-size: 12px;
+  font-weight: 550;
+}
+.context-meter .cm-disclosure summary::-webkit-details-marker {
+  display: none;
+}
+.context-meter .cm-disclosure summary::after {
+  content: " \2304";
+}
+.context-meter .cm-disclosure[open] > summary::after {
+  content: " \2303";
+}
+.context-meter .cm-disclosure-body {
+  padding: 4px 14px 14px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  align-items: center;
+}
+.context-meter .cm-disclosure-body > p {
+  flex-basis: 100%;
+}
+.context-meter .cm-history-row {
+  width: 100%;
+  min-width: 0;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  border-top: 1px solid var(--cm-line);
+  padding-top: 12px;
+}
+.context-meter .cm-history-row > div:first-child {
+  min-width: 0;
+  flex: 1 1 300px;
+  overflow-wrap: anywhere;
+}
+.context-meter .cm-history-actions,
+.context-meter .cm-history-edit {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 6px;
+}
+.context-meter .cm-history-edit {
+  flex-basis: 100%;
+}
+.context-meter input {
+  max-width: 100%;
+  min-height: 36px;
+  padding: 6px 10px;
+  background: var(--cm-surface);
+  color: var(--cm-ink);
+  border: 1px solid var(--cm-soft);
+  border-radius: 8px;
+  font: inherit;
+}
+.context-meter .cm-history-banner {
+  display: grid;
+  gap: 7px;
+  margin: 10px 0;
+  padding: 12px 14px;
+  background: var(--cm-hover);
+  border: 1px solid var(--cm-soft);
+  border-radius: 10px;
+}
+.context-meter .cm-history-banner button {
+  justify-self: start;
+}
+.context-meter .cm-tool-item {
+  display: grid;
+  gap: 4px;
+}
+.context-meter .cm-tool-item + .cm-tool-item {
+  margin-top: 9px;
+}
+.context-meter .cm-tool-name {
+  font-family:
+    ui-monospace,
+    "Cascadia Code",
+    Consolas,
+    monospace;
+  font-size: 12px;
+  font-weight: 550;
+  overflow-wrap: anywhere;
+  white-space: normal;
+}
+.context-meter .cm-owner {
+  display: inline-flex;
+  justify-self: start;
+  max-width: 100%;
+  border-radius: 5px;
+  padding: 1px 6px;
+  background: var(--cm-line);
+  color: var(--cm-ink);
+  font-size: 11px;
+  overflow-wrap: anywhere;
+}
+.context-meter .cm-datetime {
+  display: inline-flex;
+  flex-direction: column;
+  gap: 2px;
+  white-space: nowrap;
+  font-variant-numeric: tabular-nums;
+}
+.context-meter .cm-clock {
+  font-weight: 550;
+}
+.context-meter .cm-date {
+  font-size: 11px;
+  font-style: italic;
+  color: var(--cm-accent);
+}
+.context-meter .cm-issues {
+  display: block;
+  margin-top: 4px;
+  font-size: 12px;
+  color: var(--cm-accent);
+  max-width: 260px;
+}
+.context-meter .cm-expand {
+  margin-top: 7px;
+  min-height: 28px;
+  padding: 4px 8px;
+  font-size: 12px;
+  white-space: nowrap;
+}
+.context-meter .cm-detail-row > td {
+  padding: 0;
+}
+.context-meter .cm-detail-panel {
+  padding: 14px;
+  background: var(--cm-alt);
+}
+.context-meter .cm-detail-panel p {
+  margin-bottom: 10px;
+}
+.context-meter .cm-detail-panel .cm-table {
+  border: 1px solid var(--cm-line);
+}
+.context-meter .cm-detail-panel .cm-table thead th {
+  position: static;
+}
+.context-meter .cm-detail-panel .cm-table thead .cm-tool-frozen {
+  position: sticky;
+  top: auto;
+  z-index: 2;
+}
+.context-meter .cm-orphan {
+  --cm-row-bg: var(--cm-alt);
+}
+.context-meter .cm-pie {
+  padding: 20px;
+  border: 1px solid var(--cm-line);
+  border-radius: 14px;
+  background: var(--cm-surface);
+}
+.context-meter .cm-pie-layout {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(240px, 420px);
+  align-items: center;
+  gap: 24px;
+  margin-top: 18px;
+}
+.context-meter .cm-pie-legend {
+  display: grid;
+  gap: 7px;
+  min-width: 0;
+}
+.context-meter button.cm-pie-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  text-align: start;
+  width: 100%;
+  min-width: 0;
+  padding: 10px 12px;
+  border: 1px solid transparent;
+  background: transparent;
+  color: var(--cm-ink);
+  font-weight: 400;
+}
+.context-meter button.cm-pie-item.cm-pie-active {
+  background: var(--cm-hover);
+  border-color: var(--cm-soft);
+  color: var(--cm-ink);
+}
+.context-meter .cm-pie-swatch {
+  flex: 0 0 13px;
+  width: 13px;
+  height: 13px;
+  margin-top: 3px;
+  border: 1px solid var(--cm-accent);
+  border-radius: 4px;
+}
+.context-meter .cm-pie-text {
+  display: grid;
+  gap: 4px;
+  min-width: 0;
+}
+.context-meter .cm-pie-name {
+  font-size: 13px;
+  font-weight: 600;
+  overflow-wrap: anywhere;
+}
+.context-meter .cm-pie-source {
+  font-size: 11px;
+  color: var(--cm-accent);
+  overflow-wrap: anywhere;
+}
+.context-meter .cm-pie-values {
+  font-size: 12px;
+  font-weight: 400;
+  font-style: normal;
+  font-variant-numeric: tabular-nums;
+  overflow-wrap: anywhere;
+}
+.context-meter .cm-pie-svg {
+  width: 100%;
+  max-width: 420px;
+  min-width: 0;
+  justify-self: center;
+  overflow: visible;
+}
+.context-meter .cm-pie-svg path {
+  stroke: var(--cm-accent);
+  stroke-width: .7;
+  cursor: pointer;
+  transition: opacity .12s;
+}
+.context-meter .cm-pie-svg path.cm-pie-active {
+  stroke: var(--cm-ink);
+  stroke-width: 2.5;
+}
+.context-meter .cm-pie-svg path:focus-visible {
+  outline: none;
+  stroke: var(--cm-ink);
+  stroke-width: 4;
+}
+.context-meter .cm-pie-muted {
+  opacity: .55;
+}
+.context-meter .cm-pie-center-label {
+  fill: var(--cm-accent);
+  font-size: 12px;
+}
+.context-meter .cm-pie-center-total {
+  fill: var(--cm-ink);
+  font-size: 23px;
+  font-weight: 650;
+  font-variant-numeric: tabular-nums;
+}
+.context-meter .cm-pie-state {
+  padding: 24px 8px;
+  color: var(--cm-accent);
+  font-size: 13px;
+}
+.context-meter .cm-pie-other {
+  margin-top: 18px;
+  border-top: 1px solid var(--cm-line);
+  padding-top: 12px;
+  font-size: 13px;
+}
+.context-meter .cm-pie-other summary {
+  cursor: pointer;
+  color: var(--cm-accent);
+}
+.context-meter .cm-pie-members {
+  max-height: 280px;
+  overflow: auto;
+  margin-top: 10px;
+  overscroll-behavior: contain;
+}
+.context-meter .cm-pie-member {
+  display: grid;
+  gap: 4px;
+  padding: 10px 12px;
+  border-radius: 8px;
+  overflow-wrap: anywhere;
+}
+.context-meter .cm-pie-member:nth-child(odd) {
+  background: var(--cm-alt);
+}
+.context-meter .cm-pie-member > span {
+  font-size: 12px;
+}
+@media (max-width: 720px) {
+  .context-meter .cm-pie {
+    padding: 14px;
+  }
+  .context-meter .cm-pie-layout {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 16px;
+  }
+  .context-meter .cm-pie-svg {
+    max-width: 340px;
+  }
+}
+@media (max-width: 1000px) {
+  .context-meter.cm-runtime .cm-summary {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+}
+@media (max-width: 600px) {
+  .context-meter {
+    padding: 16px 12px;
+    border-radius: 14px;
+  }
+  .context-meter h2 {
+    font-size: 21px;
+  }
+  .context-meter .cm-summary,
+  .context-meter.cm-runtime .cm-summary {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 8px;
+  }
+  .context-meter .cm-stat {
+    padding: 12px;
+  }
+  .context-meter .cm-controls > label {
+    width: 100%;
+  }
+  .context-meter select {
+    width: 100%;
+  }
+  .context-meter .cm-table .cm-tool-frozen {
+    min-width: 160px;
+    width: 160px;
+    max-width: 210px;
+  }
+}
