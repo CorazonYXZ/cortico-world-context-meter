@@ -898,10 +898,19 @@ function exportCode(value, fallback) {
 // package.json
 var package_default = {
   name: "cortico-world-context-meter",
-  version: "0.5.1",
+  version: "0.5.2",
   type: "module",
   description: "Offline declaration estimates and opt-in local runtime observation for Cortico. No extra model calls or telemetry.",
   license: "MIT",
+  author: "CorazonYXZ",
+  repository: {
+    type: "git",
+    url: "git+https://github.com/CorazonYXZ/cortico-world-context-meter.git"
+  },
+  homepage: "https://github.com/CorazonYXZ/cortico-world-context-meter#readme",
+  bugs: {
+    url: "https://github.com/CorazonYXZ/cortico-world-context-meter/issues"
+  },
   keywords: [
     "cortico-world",
     "cortico"
@@ -931,16 +940,20 @@ var package_default = {
     "licenses",
     "provenance",
     "THIRD_PARTY_NOTICES.md",
+    "SECURITY.md",
+    "REVIEW_CHECKLIST.md",
     "VALIDATION.md"
   ],
   scripts: {
     test: "vitest run",
     typecheck: "tsc --noEmit && tsc -p tsconfig.web.json",
     build: "node scripts/build.mjs",
-    "check:extension": "node scripts/official-check.mjs"
+    "check:extension": "node scripts/official-check.mjs",
+    "check:security": "node scripts/security-check.mjs"
   },
-  dependencies: { "@huggingface/tokenizers": "0.2.0", exceljs: "4.4.0" },
+  dependencies: { "@huggingface/tokenizers": "0.2.0" },
   devDependencies: {
+    exceljs: "4.4.0",
     "@types/node": "^22.10.0",
     cortico: "0.2.9",
     esbuild: "0.28.2",
@@ -951,7 +964,8 @@ var package_default = {
     vec3: "0.2.0",
     tsx: "^4.19.2",
     typescript: "^5.7.2",
-    vitest: "^2.1.8"
+    vitest: "5.0.5",
+    vite: "8.3.5"
   }
 };
 

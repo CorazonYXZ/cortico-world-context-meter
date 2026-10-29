@@ -10,8 +10,8 @@ import {parentPort} from 'node:worker_threads';
 import {syncBuiltinESMExports} from 'node:module';
 import {resolve,dirname,join} from 'node:path';
 import {fileURLToPath} from 'node:url';
-const library=fileURLToPath(import.meta.resolve('exceljs/dist/exceljs.min.js'));
-const allowed=new Set([fileURLToPath(new URL('../../dist/xlsx-export-worker.mjs',import.meta.url)),library,join(dirname(dirname(library)),'package.json')].map(p=>resolve(p)));
+// All library code is bundled. No node_modules or library data reads are permitted.
+const allowed=new Set([fileURLToPath(new URL('../../dist/xlsx-export-worker.mjs',import.meta.url)),fileURLToPath(new URL('../../package.json',import.meta.url))].map(p=>resolve(p)));
 const deny=operation=>(..._args)=>{parentPort.postMessage({test:'forbidden',operation});throw new Error('Forbidden Excel test operation');};
 const check=value=>{const path=resolve(value instanceof URL?fileURLToPath(value):String(value));
   if(!allowed.has(path))deny('file-read')();parentPort.postMessage({test:'module-read'});};

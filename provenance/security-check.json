@@ -1,0 +1,35 @@
+{
+  "extensionVersion": "0.5.2",
+  "checkedAt": "2026-10-29T11:57:29.936Z",
+  "registry": "https://registry.npmjs.org",
+  "note": "Known-advisory results at this time, not security certification. All dependencies include the actual bundled Excel code.",
+  "audits": {
+    "production": {
+      "vulnerabilities": {
+        "info": 0,
+        "low": 0,
+        "moderate": 0,
+        "high": 0,
+        "critical": 0
+      },
+      "totalDependencies": 1
+    },
+    "all": {
+      "vulnerabilities": {
+        "info": 0,
+        "low": 0,
+        "moderate": 0,
+        "high": 0,
+        "critical": 0
+      },
+      "totalDependencies": 391
+    }
+  },
+  "lockfileSha256": "1598be6610ed5c220c50e701fd7d72f926dc0f2e211c31b35f951f3b02dd82e9",
+  "excelWorkerSha256": "5bac3095222a4a2fbf1bff947a24a59154b0138d007d19fab9201a8f115e5efd",
+  "bundledPackages": 74,
+  "bundledSources": 454,
+  "externalImports": "Node built-ins only",
+  "legacyBuffersBinaryTinypoolAbsent": true,
+  "oldExcelBrowserDistributionAbsent": true
+}

@@ -1,12 +1,12 @@
 # token计数 / Token count
 
-> **源码预览，暂未发布 npm。** 当前版本存在待处理的生产／开发依赖告警及一项许可信息待核实，详见 [安全与隐私说明](SECURITY.md)。源码公开不代表已通过官方认证或安全整改验收。
+> **源码预览，暂未发布 npm。** v0.5.2 已处理上轮识别的依赖告警及许可不明链路；当次生产／全量已知漏洞查询均为 0，详见 [安全与隐私说明](SECURITY.md)。仍属实验性扩展，不代表官方认证、零风险或所有环境均兼容。
 
 面向 Coopanion 的本机 token 统计面板：查看扩展静态声明体积，按需观察宿主已有的请求用量与工具操作，并通过表格、环形图、临时历史和 JSON／Excel 导出查看结果。**不额外调用模型，不自动上传统计。**
 
 项目维护者：[CorazonYXZ](https://github.com/CorazonYXZ)。[待核对清单](REVIEW_CHECKLIST.md) · [问题反馈](https://github.com/CorazonYXZ/cortico-world-context-meter/issues) · [第三方来源与许可](THIRD_PARTY_NOTICES.md)
 
-版本 **0.5.1**。包名 `cortico-world-context-meter`，World id `context-meter`。目标为 Coopanion v0.2.13 / Cortico v0.2.9 / World API 6。
+版本 **0.5.2**。包名 `cortico-world-context-meter`，World id `context-meter`。目标为 Coopanion v0.2.13 / Cortico v0.2.9 / World API 6。
 
 离线比较扩展的静态声明，并按需观察宿主已有的模型请求与工具记录。不额外调用模型、不自动上传数据、不修改宿主。
 
@@ -20,8 +20,8 @@
 
 ## 安装与更新
 
-1. 从本仓库下载源码或克隆，保留完整项目目录，包括 `src`、`dist`、`assets` 和 `describe.json`。首次获取源码的用户，应先阅读 [已知安全问题](SECURITY.md)，再决定是否在测试环境安装依赖。
-2. 开发环境需要 Node.js 22 或以上（当前验证使用 24 系列）及项目指定的 pnpm；开发安装和检查命令见下文。源码安装会接触开发依赖，当前告警尚未整改完成。
+1. 从本仓库下载源码或克隆，保留完整项目目录，包括 `src`、`dist`、`assets` 和 `describe.json`。首次获取源码的用户，应先阅读 [安全与隐私说明](SECURITY.md)，了解本机统计与当前验证范围。
+2. 开发环境优先使用 Node.js 24 LTS（也可使用满足 Vitest 要求的 22.12+ 或 26+ 系列）及项目指定的 pnpm；开发安装和检查命令见下文。宿主目标及运行时要求不因测试工具升级而改变。
 3. Coopanion 设置窗口 → 高级模式 → 扩展 → 手动安装 → 选择本项目目录。
 4. 重启 Coopanion **进程**，在 World 总览启用“token计数”，打开它的面板。
 
@@ -122,7 +122,9 @@ Excel 由本机独立 Node 工作线程生成，只接收统计白名单快照�
 corepack pnpm install
 pnpm typecheck
 pnpm build
+node scripts/licenses.mjs
 pnpm test
+pnpm check:security
 node scripts/official-check.mjs --describe
 pnpm check:extension
 ```
@@ -135,9 +137,11 @@ pnpm check:extension
 
 An offline World for static declaration ranking and opt-in observation of host-recorded model/tool usage. No extra model calls, uploads or host changes. Install in Coopanion v0.2.13: Settings → Advanced mode → Extensions → Manual install → select the project directory → restart the process → enable Token count in Worlds.
 
-**Source preview only; not published to npm in this submission.** Known production and development dependency advisories and one unclear transitive license remain open; see [SECURITY.md](SECURITY.md). Public source is not official certification or a completed security remediation. Screenshots use synthetic data. History and exports contain usage metadata and are not fully anonymous; local history is plaintext and expiry cleanup runs on save/access.
+**Source preview only; not published to npm in this submission.** Version 0.5.2 addresses the previously identified dependency advisories and removes the unclear-license chain. The recorded production and full dependency checks report zero known advisories; see [SECURITY.md](SECURITY.md). This is not official certification or a zero-risk guarantee. Screenshots use synthetic data. History and exports contain usage metadata and are not fully anonymous; local history is plaintext and expiry cleanup runs on save/access.
 
 Version 0.5.1 simplifies the panel copy: italic introductions with emphasized key phrases, and smaller muted gray-green footer notes. The persistent export explanation is removed; progress, a short success message and versioned errors remain. Observation state labels, statistics, chart, history and export formats are unchanged.
+
+Version 0.5.2 bundles the official ExcelJS Node entry and repaired dependency tree into the existing local worker, without runtime ExcelJS installation. UUID is fixed at 11.1.1, unzipper at 0.12.5, and Vitest/Vite at 5.0.5/8.3.5. Development prefers Node.js 24 LTS; supported 22-series versions start at 22.12. Build inputs, licenses and dated production/full audit results are recorded under provenance. Some upstream deprecation notices remain; no suppression is used to hide security findings.
 
 Version 0.4 adds JSON / Excel export, temporary local history and sortable merged rows. History and Sort controls sit below Simple / Detailed and start collapsed. History is saved every 10 seconds and at stop, clear, replacement or normal shutdown; one window updates one record. Retention is 7 days, 30 sessions / 64 MiB, with a 32 MiB per-file limit. Active captures are protected. Expiry/eviction runs on save or access; rename does not extend retention.
 

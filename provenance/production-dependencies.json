@@ -1,5 +1,6 @@
 {
-  "extensionVersion": "0.5.1",
+  "extensionVersion": "0.5.2",
+  "scope": "installed runtime dependency and actual Excel worker build inputs",
   "dependencies": [
     {
       "name": "@fast-csv/format",
@@ -10,6 +11,7 @@
       "repository": "git+https://github.com/C2FO/fast-csv.git",
       "registry": "https://registry.npmjs.org/%40fast-csv%2Fformat",
       "bundledInExcelWorker": true,
+      "runtimeDependency": false,
       "licenseFiles": [
         "LICENSE"
       ]
@@ -23,6 +25,7 @@
       "repository": "git+https://github.com/C2FO/fast-csv.git",
       "registry": "https://registry.npmjs.org/%40fast-csv%2Fparse",
       "bundledInExcelWorker": true,
+      "runtimeDependency": false,
       "licenseFiles": [
         "LICENSE"
       ]
@@ -36,32 +39,7 @@
       "repository": "git+https://github.com/huggingface/tokenizers.js.git",
       "registry": "https://registry.npmjs.org/%40huggingface%2Ftokenizers",
       "bundledInExcelWorker": false,
-      "licenseFiles": [
-        "LICENSE"
-      ]
-    },
-    {
-      "name": "@types/node",
-      "versions": [
-        "14.18.63"
-      ],
-      "license": "MIT",
-      "repository": "https://github.com/DefinitelyTyped/DefinitelyTyped.git",
-      "registry": "https://registry.npmjs.org/%40types%2Fnode",
-      "bundledInExcelWorker": false,
-      "licenseFiles": [
-        "LICENSE"
-      ]
-    },
-    {
-      "name": "archiver",
-      "versions": [
-        "5.3.2"
-      ],
-      "license": "MIT",
-      "repository": "https://github.com/archiverjs/node-archiver.git",
-      "registry": "https://registry.npmjs.org/archiver",
-      "bundledInExcelWorker": false,
+      "runtimeDependency": true,
       "licenseFiles": [
         "LICENSE"
       ]
@@ -74,7 +52,8 @@
       "license": "MIT",
       "repository": "https://github.com/archiverjs/archiver-utils.git",
       "registry": "https://registry.npmjs.org/archiver-utils",
-      "bundledInExcelWorker": false,
+      "bundledInExcelWorker": true,
+      "runtimeDependency": false,
       "licenseFiles": [
         "LICENSE"
       ]
@@ -87,33 +66,22 @@
       "license": "MIT",
       "repository": "https://github.com/archiverjs/archiver-utils.git",
       "registry": "https://registry.npmjs.org/archiver-utils",
-      "bundledInExcelWorker": false,
+      "bundledInExcelWorker": true,
+      "runtimeDependency": false,
       "licenseFiles": [
         "LICENSE"
       ]
     },
     {
-      "name": "array-buffer-byte-length",
+      "name": "archiver",
       "versions": [
-        "1.0.2"
+        "5.3.2"
       ],
       "license": "MIT",
-      "repository": "git+https://github.com/inspect-js/array-buffer-byte-length.git",
-      "registry": "https://registry.npmjs.org/array-buffer-byte-length",
-      "bundledInExcelWorker": false,
-      "licenseFiles": [
-        "LICENSE"
-      ]
-    },
-    {
-      "name": "arraybuffer.prototype.slice",
-      "versions": [
-        "1.0.4"
-      ],
-      "license": "MIT",
-      "repository": "git+https://github.com/es-shims/ArrayBuffer.prototype.slice.git",
-      "registry": "https://registry.npmjs.org/arraybuffer.prototype.slice",
-      "bundledInExcelWorker": false,
+      "repository": "https://github.com/archiverjs/node-archiver.git",
+      "registry": "https://registry.npmjs.org/archiver",
+      "bundledInExcelWorker": true,
+      "runtimeDependency": false,
       "licenseFiles": [
         "LICENSE"
       ]
@@ -126,33 +94,8 @@
       "license": "MIT",
       "repository": "https://github.com/caolan/async.git",
       "registry": "https://registry.npmjs.org/async",
-      "bundledInExcelWorker": false,
-      "licenseFiles": [
-        "LICENSE"
-      ]
-    },
-    {
-      "name": "async-function",
-      "versions": [
-        "1.0.0"
-      ],
-      "license": "MIT",
-      "repository": "git+https://github.com/ljharb/async-function.git",
-      "registry": "https://registry.npmjs.org/async-function",
-      "bundledInExcelWorker": false,
-      "licenseFiles": [
-        "LICENSE"
-      ]
-    },
-    {
-      "name": "available-typed-arrays",
-      "versions": [
-        "1.0.7"
-      ],
-      "license": "MIT",
-      "repository": "git+https://github.com/inspect-js/available-typed-arrays.git",
-      "registry": "https://registry.npmjs.org/available-typed-arrays",
-      "bundledInExcelWorker": false,
+      "bundledInExcelWorker": true,
+      "runtimeDependency": false,
       "licenseFiles": [
         "LICENSE"
       ]
@@ -165,48 +108,10 @@
       "license": "MIT",
       "repository": "git://github.com/juliangruber/balanced-match.git",
       "registry": "https://registry.npmjs.org/balanced-match",
-      "bundledInExcelWorker": false,
+      "bundledInExcelWorker": true,
+      "runtimeDependency": false,
       "licenseFiles": [
         "LICENSE.md"
-      ]
-    },
-    {
-      "name": "base64-js",
-      "versions": [
-        "1.5.1"
-      ],
-      "license": "MIT",
-      "repository": "git://github.com/beatgammit/base64-js.git",
-      "registry": "https://registry.npmjs.org/base64-js",
-      "bundledInExcelWorker": true,
-      "licenseFiles": [
-        "LICENSE"
-      ]
-    },
-    {
-      "name": "big-integer",
-      "versions": [
-        "1.6.52"
-      ],
-      "license": "Unlicense",
-      "repository": "git@github.com:peterolson/BigInteger.js.git",
-      "registry": "https://registry.npmjs.org/big-integer",
-      "bundledInExcelWorker": false,
-      "licenseFiles": [
-        "LICENSE"
-      ]
-    },
-    {
-      "name": "binary",
-      "versions": [
-        "0.3.0"
-      ],
-      "license": "MIT",
-      "repository": "http://github.com/substack/node-binary.git",
-      "registry": "https://registry.npmjs.org/binary",
-      "bundledInExcelWorker": false,
-      "licenseFiles": [
-        "README.markdown (license section)"
       ]
     },
     {
@@ -217,7 +122,8 @@
       "license": "MIT",
       "repository": "https://github.com/rvagg/bl.git",
       "registry": "https://registry.npmjs.org/bl",
-      "bundledInExcelWorker": false,
+      "bundledInExcelWorker": true,
+      "runtimeDependency": false,
       "licenseFiles": [
         "LICENSE.md"
       ]
@@ -225,12 +131,13 @@
     {
       "name": "bluebird",
       "versions": [
-        "3.4.7"
+        "3.7.2"
       ],
       "license": "MIT",
       "repository": "git://github.com/petkaantonov/bluebird.git",
       "registry": "https://registry.npmjs.org/bluebird",
-      "bundledInExcelWorker": false,
+      "bundledInExcelWorker": true,
+      "runtimeDependency": false,
       "licenseFiles": [
         "LICENSE"
       ]
@@ -243,7 +150,8 @@
       "license": "MIT",
       "repository": "git://github.com/juliangruber/brace-expansion.git",
       "registry": "https://registry.npmjs.org/brace-expansion",
-      "bundledInExcelWorker": false,
+      "bundledInExcelWorker": true,
+      "runtimeDependency": false,
       "licenseFiles": [
         "LICENSE"
       ]
@@ -256,20 +164,8 @@
       "license": "MIT",
       "repository": "git://github.com/juliangruber/brace-expansion.git",
       "registry": "https://registry.npmjs.org/brace-expansion",
-      "bundledInExcelWorker": false,
-      "licenseFiles": [
-        "LICENSE"
-      ]
-    },
-    {
-      "name": "buffer",
-      "versions": [
-        "5.7.1"
-      ],
-      "license": "MIT",
-      "repository": "git://github.com/feross/buffer.git",
-      "registry": "https://registry.npmjs.org/buffer",
       "bundledInExcelWorker": true,
+      "runtimeDependency": false,
       "licenseFiles": [
         "LICENSE"
       ]
@@ -282,84 +178,11 @@
       "license": "MIT",
       "repository": "git://github.com/brianloveswords/buffer-crc32.git",
       "registry": "https://registry.npmjs.org/buffer-crc32",
-      "bundledInExcelWorker": false,
+      "bundledInExcelWorker": true,
+      "runtimeDependency": false,
       "licenseFiles": [
         "LICENSE"
       ]
-    },
-    {
-      "name": "buffer-indexof-polyfill",
-      "versions": [
-        "1.0.2"
-      ],
-      "license": "MIT",
-      "repository": "git+https://github.com/sarosia/buffer-indexof-polyfill.git",
-      "registry": "https://registry.npmjs.org/buffer-indexof-polyfill",
-      "bundledInExcelWorker": false,
-      "licenseFiles": [
-        "LICENSE"
-      ]
-    },
-    {
-      "name": "buffers",
-      "versions": [
-        "0.1.1"
-      ],
-      "license": "Unknown",
-      "repository": "http://github.com/substack/node-buffers.git",
-      "registry": "https://registry.npmjs.org/buffers",
-      "bundledInExcelWorker": false,
-      "licenseFiles": []
-    },
-    {
-      "name": "call-bind",
-      "versions": [
-        "1.0.9"
-      ],
-      "license": "MIT",
-      "repository": "git+https://github.com/ljharb/call-bind.git",
-      "registry": "https://registry.npmjs.org/call-bind",
-      "bundledInExcelWorker": false,
-      "licenseFiles": [
-        "LICENSE"
-      ]
-    },
-    {
-      "name": "call-bind-apply-helpers",
-      "versions": [
-        "1.0.2"
-      ],
-      "license": "MIT",
-      "repository": "git+https://github.com/ljharb/call-bind-apply-helpers.git",
-      "registry": "https://registry.npmjs.org/call-bind-apply-helpers",
-      "bundledInExcelWorker": false,
-      "licenseFiles": [
-        "LICENSE"
-      ]
-    },
-    {
-      "name": "call-bound",
-      "versions": [
-        "1.0.4"
-      ],
-      "license": "MIT",
-      "repository": "git+https://github.com/ljharb/call-bound.git",
-      "registry": "https://registry.npmjs.org/call-bound",
-      "bundledInExcelWorker": false,
-      "licenseFiles": [
-        "LICENSE"
-      ]
-    },
-    {
-      "name": "chainsaw",
-      "versions": [
-        "0.1.0"
-      ],
-      "license": "MIT/X11",
-      "repository": "http://github.com/substack/node-chainsaw.git",
-      "registry": "https://registry.npmjs.org/chainsaw",
-      "bundledInExcelWorker": false,
-      "licenseFiles": []
     },
     {
       "name": "compress-commons",
@@ -369,7 +192,8 @@
       "license": "MIT",
       "repository": "https://github.com/archiverjs/node-compress-commons.git",
       "registry": "https://registry.npmjs.org/compress-commons",
-      "bundledInExcelWorker": false,
+      "bundledInExcelWorker": true,
+      "runtimeDependency": false,
       "licenseFiles": [
         "LICENSE"
       ]
@@ -382,7 +206,8 @@
       "license": "MIT",
       "repository": "git://github.com/substack/node-concat-map.git",
       "registry": "https://registry.npmjs.org/concat-map",
-      "bundledInExcelWorker": false,
+      "bundledInExcelWorker": true,
+      "runtimeDependency": false,
       "licenseFiles": [
         "LICENSE"
       ]
@@ -396,6 +221,7 @@
       "repository": "git://github.com/isaacs/core-util-is",
       "registry": "https://registry.npmjs.org/core-util-is",
       "bundledInExcelWorker": true,
+      "runtimeDependency": false,
       "licenseFiles": [
         "LICENSE"
       ]
@@ -408,7 +234,8 @@
       "license": "Apache-2.0",
       "repository": "git://github.com/SheetJS/js-crc32.git",
       "registry": "https://registry.npmjs.org/crc-32",
-      "bundledInExcelWorker": false,
+      "bundledInExcelWorker": true,
+      "runtimeDependency": false,
       "licenseFiles": [
         "LICENSE"
       ]
@@ -421,46 +248,8 @@
       "license": "MIT",
       "repository": "https://github.com/archiverjs/node-crc32-stream.git",
       "registry": "https://registry.npmjs.org/crc32-stream",
-      "bundledInExcelWorker": false,
-      "licenseFiles": [
-        "LICENSE"
-      ]
-    },
-    {
-      "name": "data-view-buffer",
-      "versions": [
-        "1.0.2"
-      ],
-      "license": "MIT",
-      "repository": "git+https://github.com/inspect-js/data-view-buffer.git",
-      "registry": "https://registry.npmjs.org/data-view-buffer",
-      "bundledInExcelWorker": false,
-      "licenseFiles": [
-        "LICENSE"
-      ]
-    },
-    {
-      "name": "data-view-byte-length",
-      "versions": [
-        "1.0.2"
-      ],
-      "license": "MIT",
-      "repository": "git+https://github.com/inspect-js/data-view-byte-length.git",
-      "registry": "https://registry.npmjs.org/data-view-byte-length",
-      "bundledInExcelWorker": false,
-      "licenseFiles": [
-        "LICENSE"
-      ]
-    },
-    {
-      "name": "data-view-byte-offset",
-      "versions": [
-        "1.0.1"
-      ],
-      "license": "MIT",
-      "repository": "git+https://github.com/inspect-js/data-view-byte-offset.git",
-      "registry": "https://registry.npmjs.org/data-view-byte-offset",
-      "bundledInExcelWorker": false,
+      "bundledInExcelWorker": true,
+      "runtimeDependency": false,
       "licenseFiles": [
         "LICENSE"
       ]
@@ -474,45 +263,7 @@
       "repository": "https://github.com/iamkun/dayjs.git",
       "registry": "https://registry.npmjs.org/dayjs",
       "bundledInExcelWorker": true,
-      "licenseFiles": [
-        "LICENSE"
-      ]
-    },
-    {
-      "name": "define-data-property",
-      "versions": [
-        "1.1.4"
-      ],
-      "license": "MIT",
-      "repository": "git+https://github.com/ljharb/define-data-property.git",
-      "registry": "https://registry.npmjs.org/define-data-property",
-      "bundledInExcelWorker": false,
-      "licenseFiles": [
-        "LICENSE"
-      ]
-    },
-    {
-      "name": "define-properties",
-      "versions": [
-        "1.2.1"
-      ],
-      "license": "MIT",
-      "repository": "git://github.com/ljharb/define-properties.git",
-      "registry": "https://registry.npmjs.org/define-properties",
-      "bundledInExcelWorker": false,
-      "licenseFiles": [
-        "LICENSE"
-      ]
-    },
-    {
-      "name": "dunder-proto",
-      "versions": [
-        "1.0.1"
-      ],
-      "license": "MIT",
-      "repository": "git+https://github.com/es-shims/dunder-proto.git",
-      "registry": "https://registry.npmjs.org/dunder-proto",
-      "bundledInExcelWorker": false,
+      "runtimeDependency": false,
       "licenseFiles": [
         "LICENSE"
       ]
@@ -525,7 +276,8 @@
       "license": "BSD-3-Clause",
       "repository": "deoxxa/duplexer2",
       "registry": "https://registry.npmjs.org/duplexer2",
-      "bundledInExcelWorker": false,
+      "bundledInExcelWorker": true,
+      "runtimeDependency": false,
       "licenseFiles": [
         "LICENSE.md"
       ]
@@ -538,98 +290,8 @@
       "license": "MIT",
       "repository": "git://github.com/mafintosh/end-of-stream.git",
       "registry": "https://registry.npmjs.org/end-of-stream",
-      "bundledInExcelWorker": false,
-      "licenseFiles": [
-        "LICENSE"
-      ]
-    },
-    {
-      "name": "es-abstract",
-      "versions": [
-        "1.24.2"
-      ],
-      "license": "MIT",
-      "repository": "git://github.com/ljharb/es-abstract.git",
-      "registry": "https://registry.npmjs.org/es-abstract",
-      "bundledInExcelWorker": false,
-      "licenseFiles": [
-        "LICENSE"
-      ]
-    },
-    {
-      "name": "es-abstract-get",
-      "versions": [
-        "1.0.0"
-      ],
-      "license": "MIT",
-      "repository": "git+https://github.com/ljharb/es-abstract-get.git",
-      "registry": "https://registry.npmjs.org/es-abstract-get",
-      "bundledInExcelWorker": false,
-      "licenseFiles": [
-        "LICENSE"
-      ]
-    },
-    {
-      "name": "es-define-property",
-      "versions": [
-        "1.0.1"
-      ],
-      "license": "MIT",
-      "repository": "git+https://github.com/ljharb/es-define-property.git",
-      "registry": "https://registry.npmjs.org/es-define-property",
-      "bundledInExcelWorker": false,
-      "licenseFiles": [
-        "LICENSE"
-      ]
-    },
-    {
-      "name": "es-errors",
-      "versions": [
-        "1.3.0"
-      ],
-      "license": "MIT",
-      "repository": "git+https://github.com/ljharb/es-errors.git",
-      "registry": "https://registry.npmjs.org/es-errors",
-      "bundledInExcelWorker": false,
-      "licenseFiles": [
-        "LICENSE"
-      ]
-    },
-    {
-      "name": "es-object-atoms",
-      "versions": [
-        "1.1.2"
-      ],
-      "license": "MIT",
-      "repository": "git+https://github.com/ljharb/es-object-atoms.git",
-      "registry": "https://registry.npmjs.org/es-object-atoms",
-      "bundledInExcelWorker": false,
-      "licenseFiles": [
-        "LICENSE"
-      ]
-    },
-    {
-      "name": "es-set-tostringtag",
-      "versions": [
-        "2.1.0"
-      ],
-      "license": "MIT",
-      "repository": "git+https://github.com/es-shims/es-set-tostringtag.git",
-      "registry": "https://registry.npmjs.org/es-set-tostringtag",
-      "bundledInExcelWorker": false,
-      "licenseFiles": [
-        "LICENSE"
-      ]
-    },
-    {
-      "name": "es-to-primitive",
-      "versions": [
-        "1.3.4"
-      ],
-      "license": "MIT",
-      "repository": "git://github.com/ljharb/es-to-primitive.git",
-      "registry": "https://registry.npmjs.org/es-to-primitive",
-      "bundledInExcelWorker": false,
+      "bundledInExcelWorker": true,
+      "runtimeDependency": false,
       "licenseFiles": [
         "LICENSE"
       ]
@@ -643,6 +305,7 @@
       "repository": "https://github.com/exceljs/exceljs.git",
       "registry": "https://registry.npmjs.org/exceljs",
       "bundledInExcelWorker": true,
+      "runtimeDependency": false,
       "licenseFiles": [
         "LICENSE"
       ]
@@ -656,19 +319,7 @@
       "repository": "git+https://github.com/C2FO/fast-csv.git",
       "registry": "https://registry.npmjs.org/fast-csv",
       "bundledInExcelWorker": true,
-      "licenseFiles": [
-        "LICENSE"
-      ]
-    },
-    {
-      "name": "for-each",
-      "versions": [
-        "0.3.5"
-      ],
-      "license": "MIT",
-      "repository": "https://github.com/Raynos/for-each.git",
-      "registry": "https://registry.npmjs.org/for-each",
-      "bundledInExcelWorker": false,
+      "runtimeDependency": false,
       "licenseFiles": [
         "LICENSE"
       ]
@@ -681,7 +332,22 @@
       "license": "MIT",
       "repository": "https://github.com/mafintosh/fs-constants.git",
       "registry": "https://registry.npmjs.org/fs-constants",
-      "bundledInExcelWorker": false,
+      "bundledInExcelWorker": true,
+      "runtimeDependency": false,
+      "licenseFiles": [
+        "LICENSE"
+      ]
+    },
+    {
+      "name": "fs-extra",
+      "versions": [
+        "11.3.1"
+      ],
+      "license": "MIT",
+      "repository": "https://github.com/jprichardson/node-fs-extra",
+      "registry": "https://registry.npmjs.org/fs-extra",
+      "bundledInExcelWorker": true,
+      "runtimeDependency": false,
       "licenseFiles": [
         "LICENSE"
       ]
@@ -694,111 +360,8 @@
       "license": "ISC",
       "repository": "git+https://github.com/isaacs/fs.realpath.git",
       "registry": "https://registry.npmjs.org/fs.realpath",
-      "bundledInExcelWorker": false,
-      "licenseFiles": [
-        "LICENSE"
-      ]
-    },
-    {
-      "name": "fstream",
-      "versions": [
-        "1.0.12"
-      ],
-      "license": "ISC",
-      "repository": "https://github.com/npm/fstream.git",
-      "registry": "https://registry.npmjs.org/fstream",
-      "bundledInExcelWorker": false,
-      "licenseFiles": [
-        "LICENSE"
-      ]
-    },
-    {
-      "name": "function-bind",
-      "versions": [
-        "1.1.2"
-      ],
-      "license": "MIT",
-      "repository": "https://github.com/Raynos/function-bind.git",
-      "registry": "https://registry.npmjs.org/function-bind",
-      "bundledInExcelWorker": false,
-      "licenseFiles": [
-        "LICENSE"
-      ]
-    },
-    {
-      "name": "function.prototype.name",
-      "versions": [
-        "1.2.0"
-      ],
-      "license": "MIT",
-      "repository": "git://github.com/es-shims/Function.prototype.name.git",
-      "registry": "https://registry.npmjs.org/function.prototype.name",
-      "bundledInExcelWorker": false,
-      "licenseFiles": [
-        "LICENSE"
-      ]
-    },
-    {
-      "name": "functions-have-names",
-      "versions": [
-        "1.2.3"
-      ],
-      "license": "MIT",
-      "repository": "git+https://github.com/inspect-js/functions-have-names.git",
-      "registry": "https://registry.npmjs.org/functions-have-names",
-      "bundledInExcelWorker": false,
-      "licenseFiles": [
-        "LICENSE"
-      ]
-    },
-    {
-      "name": "generator-function",
-      "versions": [
-        "2.0.1"
-      ],
-      "license": "MIT",
-      "repository": "git+https://github.com/TimothyGu/generator-function.git",
-      "registry": "https://registry.npmjs.org/generator-function",
-      "bundledInExcelWorker": false,
-      "licenseFiles": [
-        "LICENSE.md"
-      ]
-    },
-    {
-      "name": "get-intrinsic",
-      "versions": [
-        "1.3.0"
-      ],
-      "license": "MIT",
-      "repository": "git+https://github.com/ljharb/get-intrinsic.git",
-      "registry": "https://registry.npmjs.org/get-intrinsic",
-      "bundledInExcelWorker": false,
-      "licenseFiles": [
-        "LICENSE"
-      ]
-    },
-    {
-      "name": "get-proto",
-      "versions": [
-        "1.0.1"
-      ],
-      "license": "MIT",
-      "repository": "git+https://github.com/ljharb/get-proto.git",
-      "registry": "https://registry.npmjs.org/get-proto",
-      "bundledInExcelWorker": false,
-      "licenseFiles": [
-        "LICENSE"
-      ]
-    },
-    {
-      "name": "get-symbol-description",
-      "versions": [
-        "1.1.0"
-      ],
-      "license": "MIT",
-      "repository": "git+https://github.com/inspect-js/get-symbol-description.git",
-      "registry": "https://registry.npmjs.org/get-symbol-description",
-      "bundledInExcelWorker": false,
+      "bundledInExcelWorker": true,
+      "runtimeDependency": false,
       "licenseFiles": [
         "LICENSE"
       ]
@@ -811,33 +374,8 @@
       "license": "ISC",
       "repository": "git://github.com/isaacs/node-glob.git",
       "registry": "https://registry.npmjs.org/glob",
-      "bundledInExcelWorker": false,
-      "licenseFiles": [
-        "LICENSE"
-      ]
-    },
-    {
-      "name": "globalthis",
-      "versions": [
-        "1.0.4"
-      ],
-      "license": "MIT",
-      "repository": "git://github.com/ljharb/System.global.git",
-      "registry": "https://registry.npmjs.org/globalthis",
-      "bundledInExcelWorker": false,
-      "licenseFiles": [
-        "LICENSE"
-      ]
-    },
-    {
-      "name": "gopd",
-      "versions": [
-        "1.2.0"
-      ],
-      "license": "MIT",
-      "repository": "git+https://github.com/ljharb/gopd.git",
-      "registry": "https://registry.npmjs.org/gopd",
-      "bundledInExcelWorker": false,
+      "bundledInExcelWorker": true,
+      "runtimeDependency": false,
       "licenseFiles": [
         "LICENSE"
       ]
@@ -850,98 +388,8 @@
       "license": "ISC",
       "repository": "https://github.com/isaacs/node-graceful-fs",
       "registry": "https://registry.npmjs.org/graceful-fs",
-      "bundledInExcelWorker": false,
-      "licenseFiles": [
-        "LICENSE"
-      ]
-    },
-    {
-      "name": "has-bigints",
-      "versions": [
-        "1.1.0"
-      ],
-      "license": "MIT",
-      "repository": "git+https://github.com/ljharb/has-bigints.git",
-      "registry": "https://registry.npmjs.org/has-bigints",
-      "bundledInExcelWorker": false,
-      "licenseFiles": [
-        "LICENSE"
-      ]
-    },
-    {
-      "name": "has-property-descriptors",
-      "versions": [
-        "1.0.2"
-      ],
-      "license": "MIT",
-      "repository": "git+https://github.com/inspect-js/has-property-descriptors.git",
-      "registry": "https://registry.npmjs.org/has-property-descriptors",
-      "bundledInExcelWorker": false,
-      "licenseFiles": [
-        "LICENSE"
-      ]
-    },
-    {
-      "name": "has-proto",
-      "versions": [
-        "1.2.0"
-      ],
-      "license": "MIT",
-      "repository": "git+https://github.com/inspect-js/has-proto.git",
-      "registry": "https://registry.npmjs.org/has-proto",
-      "bundledInExcelWorker": false,
-      "licenseFiles": [
-        "LICENSE"
-      ]
-    },
-    {
-      "name": "has-symbols",
-      "versions": [
-        "1.1.0"
-      ],
-      "license": "MIT",
-      "repository": "git://github.com/inspect-js/has-symbols.git",
-      "registry": "https://registry.npmjs.org/has-symbols",
-      "bundledInExcelWorker": false,
-      "licenseFiles": [
-        "LICENSE"
-      ]
-    },
-    {
-      "name": "has-tostringtag",
-      "versions": [
-        "1.0.2"
-      ],
-      "license": "MIT",
-      "repository": "git+https://github.com/inspect-js/has-tostringtag.git",
-      "registry": "https://registry.npmjs.org/has-tostringtag",
-      "bundledInExcelWorker": false,
-      "licenseFiles": [
-        "LICENSE"
-      ]
-    },
-    {
-      "name": "hasown",
-      "versions": [
-        "2.0.4"
-      ],
-      "license": "MIT",
-      "repository": "git+https://github.com/inspect-js/hasOwn.git",
-      "registry": "https://registry.npmjs.org/hasown",
-      "bundledInExcelWorker": false,
-      "licenseFiles": [
-        "LICENSE"
-      ]
-    },
-    {
-      "name": "ieee754",
-      "versions": [
-        "1.2.1"
-      ],
-      "license": "BSD-3-Clause",
-      "repository": "git://github.com/feross/ieee754.git",
-      "registry": "https://registry.npmjs.org/ieee754",
       "bundledInExcelWorker": true,
+      "runtimeDependency": false,
       "licenseFiles": [
         "LICENSE"
       ]
@@ -954,7 +402,8 @@
       "license": "MIT",
       "repository": "git://github.com/calvinmetcalf/immediate.git",
       "registry": "https://registry.npmjs.org/immediate",
-      "bundledInExcelWorker": false,
+      "bundledInExcelWorker": true,
+      "runtimeDependency": false,
       "licenseFiles": [
         "LICENSE.txt"
       ]
@@ -967,7 +416,8 @@
       "license": "ISC",
       "repository": "https://github.com/npm/inflight.git",
       "registry": "https://registry.npmjs.org/inflight",
-      "bundledInExcelWorker": false,
+      "bundledInExcelWorker": true,
+      "runtimeDependency": false,
       "licenseFiles": [
         "LICENSE"
       ]
@@ -981,305 +431,7 @@
       "repository": "git://github.com/isaacs/inherits",
       "registry": "https://registry.npmjs.org/inherits",
       "bundledInExcelWorker": true,
-      "licenseFiles": [
-        "LICENSE"
-      ]
-    },
-    {
-      "name": "internal-slot",
-      "versions": [
-        "1.1.0"
-      ],
-      "license": "MIT",
-      "repository": "git+https://github.com/ljharb/internal-slot.git",
-      "registry": "https://registry.npmjs.org/internal-slot",
-      "bundledInExcelWorker": false,
-      "licenseFiles": [
-        "LICENSE"
-      ]
-    },
-    {
-      "name": "is-array-buffer",
-      "versions": [
-        "3.0.5"
-      ],
-      "license": "MIT",
-      "repository": "git+https://github.com/inspect-js/is-array-buffer.git",
-      "registry": "https://registry.npmjs.org/is-array-buffer",
-      "bundledInExcelWorker": false,
-      "licenseFiles": [
-        "LICENSE"
-      ]
-    },
-    {
-      "name": "is-async-function",
-      "versions": [
-        "2.1.1"
-      ],
-      "license": "MIT",
-      "repository": "git://github.com/inspect-js/is-async-function.git",
-      "registry": "https://registry.npmjs.org/is-async-function",
-      "bundledInExcelWorker": false,
-      "licenseFiles": [
-        "LICENSE"
-      ]
-    },
-    {
-      "name": "is-bigint",
-      "versions": [
-        "1.1.0"
-      ],
-      "license": "MIT",
-      "repository": "git+https://github.com/inspect-js/is-bigint.git",
-      "registry": "https://registry.npmjs.org/is-bigint",
-      "bundledInExcelWorker": false,
-      "licenseFiles": [
-        "LICENSE"
-      ]
-    },
-    {
-      "name": "is-boolean-object",
-      "versions": [
-        "1.2.2"
-      ],
-      "license": "MIT",
-      "repository": "git://github.com/inspect-js/is-boolean-object.git",
-      "registry": "https://registry.npmjs.org/is-boolean-object",
-      "bundledInExcelWorker": false,
-      "licenseFiles": [
-        "LICENSE"
-      ]
-    },
-    {
-      "name": "is-callable",
-      "versions": [
-        "1.2.7"
-      ],
-      "license": "MIT",
-      "repository": "git://github.com/inspect-js/is-callable.git",
-      "registry": "https://registry.npmjs.org/is-callable",
-      "bundledInExcelWorker": false,
-      "licenseFiles": [
-        "LICENSE"
-      ]
-    },
-    {
-      "name": "is-data-view",
-      "versions": [
-        "1.0.2"
-      ],
-      "license": "MIT",
-      "repository": "git+https://github.com/inspect-js/is-data-view.git",
-      "registry": "https://registry.npmjs.org/is-data-view",
-      "bundledInExcelWorker": false,
-      "licenseFiles": [
-        "LICENSE"
-      ]
-    },
-    {
-      "name": "is-date-object",
-      "versions": [
-        "1.1.0"
-      ],
-      "license": "MIT",
-      "repository": "git://github.com/inspect-js/is-date-object.git",
-      "registry": "https://registry.npmjs.org/is-date-object",
-      "bundledInExcelWorker": false,
-      "licenseFiles": [
-        "LICENSE"
-      ]
-    },
-    {
-      "name": "is-document.all",
-      "versions": [
-        "1.0.0"
-      ],
-      "license": "MIT",
-      "repository": "git+https://github.com/inspect-js/is-document.all.git",
-      "registry": "https://registry.npmjs.org/is-document.all",
-      "bundledInExcelWorker": false,
-      "licenseFiles": [
-        "LICENSE"
-      ]
-    },
-    {
-      "name": "is-finalizationregistry",
-      "versions": [
-        "1.1.1"
-      ],
-      "license": "MIT",
-      "repository": "git+https://github.com/inspect-js/is-finalizationregistry.git",
-      "registry": "https://registry.npmjs.org/is-finalizationregistry",
-      "bundledInExcelWorker": false,
-      "licenseFiles": [
-        "LICENSE"
-      ]
-    },
-    {
-      "name": "is-generator-function",
-      "versions": [
-        "1.1.2"
-      ],
-      "license": "MIT",
-      "repository": "git://github.com/inspect-js/is-generator-function.git",
-      "registry": "https://registry.npmjs.org/is-generator-function",
-      "bundledInExcelWorker": false,
-      "licenseFiles": [
-        "LICENSE"
-      ]
-    },
-    {
-      "name": "is-map",
-      "versions": [
-        "2.0.3"
-      ],
-      "license": "MIT",
-      "repository": "git+https://github.com/inspect-js/is-map.git",
-      "registry": "https://registry.npmjs.org/is-map",
-      "bundledInExcelWorker": false,
-      "licenseFiles": [
-        "LICENSE"
-      ]
-    },
-    {
-      "name": "is-negative-zero",
-      "versions": [
-        "2.0.3"
-      ],
-      "license": "MIT",
-      "repository": "git://github.com/inspect-js/is-negative-zero.git",
-      "registry": "https://registry.npmjs.org/is-negative-zero",
-      "bundledInExcelWorker": false,
-      "licenseFiles": [
-        "LICENSE"
-      ]
-    },
-    {
-      "name": "is-number-object",
-      "versions": [
-        "1.1.1"
-      ],
-      "license": "MIT",
-      "repository": "git://github.com/inspect-js/is-number-object.git",
-      "registry": "https://registry.npmjs.org/is-number-object",
-      "bundledInExcelWorker": false,
-      "licenseFiles": [
-        "LICENSE"
-      ]
-    },
-    {
-      "name": "is-regex",
-      "versions": [
-        "1.2.1"
-      ],
-      "license": "MIT",
-      "repository": "git://github.com/inspect-js/is-regex.git",
-      "registry": "https://registry.npmjs.org/is-regex",
-      "bundledInExcelWorker": false,
-      "licenseFiles": [
-        "LICENSE"
-      ]
-    },
-    {
-      "name": "is-set",
-      "versions": [
-        "2.0.3"
-      ],
-      "license": "MIT",
-      "repository": "git+https://github.com/inspect-js/is-set.git",
-      "registry": "https://registry.npmjs.org/is-set",
-      "bundledInExcelWorker": false,
-      "licenseFiles": [
-        "LICENSE"
-      ]
-    },
-    {
-      "name": "is-shared-array-buffer",
-      "versions": [
-        "1.0.4"
-      ],
-      "license": "MIT",
-      "repository": "git+https://github.com/inspect-js/is-shared-array-buffer.git",
-      "registry": "https://registry.npmjs.org/is-shared-array-buffer",
-      "bundledInExcelWorker": false,
-      "licenseFiles": [
-        "LICENSE"
-      ]
-    },
-    {
-      "name": "is-string",
-      "versions": [
-        "1.1.1"
-      ],
-      "license": "MIT",
-      "repository": "git://github.com/inspect-js/is-string.git",
-      "registry": "https://registry.npmjs.org/is-string",
-      "bundledInExcelWorker": false,
-      "licenseFiles": [
-        "LICENSE"
-      ]
-    },
-    {
-      "name": "is-symbol",
-      "versions": [
-        "1.1.1"
-      ],
-      "license": "MIT",
-      "repository": "git://github.com/inspect-js/is-symbol.git",
-      "registry": "https://registry.npmjs.org/is-symbol",
-      "bundledInExcelWorker": false,
-      "licenseFiles": [
-        "LICENSE"
-      ]
-    },
-    {
-      "name": "is-typed-array",
-      "versions": [
-        "1.1.15"
-      ],
-      "license": "MIT",
-      "repository": "git://github.com/inspect-js/is-typed-array.git",
-      "registry": "https://registry.npmjs.org/is-typed-array",
-      "bundledInExcelWorker": false,
-      "licenseFiles": [
-        "LICENSE"
-      ]
-    },
-    {
-      "name": "is-weakmap",
-      "versions": [
-        "2.0.2"
-      ],
-      "license": "MIT",
-      "repository": "git+https://github.com/inspect-js/is-weakmap.git",
-      "registry": "https://registry.npmjs.org/is-weakmap",
-      "bundledInExcelWorker": false,
-      "licenseFiles": [
-        "LICENSE"
-      ]
-    },
-    {
-      "name": "is-weakref",
-      "versions": [
-        "1.1.1"
-      ],
-      "license": "MIT",
-      "repository": "git+https://github.com/inspect-js/is-weakref.git",
-      "registry": "https://registry.npmjs.org/is-weakref",
-      "bundledInExcelWorker": false,
-      "licenseFiles": [
-        "LICENSE"
-      ]
-    },
-    {
-      "name": "is-weakset",
-      "versions": [
-        "2.0.4"
-      ],
-      "license": "MIT",
-      "repository": "git+https://github.com/inspect-js/is-weakset.git",
-      "registry": "https://registry.npmjs.org/is-weakset",
-      "bundledInExcelWorker": false,
+      "runtimeDependency": false,
       "licenseFiles": [
         "LICENSE"
       ]
@@ -1293,19 +445,21 @@
       "repository": "git://github.com/juliangruber/isarray.git",
       "registry": "https://registry.npmjs.org/isarray",
       "bundledInExcelWorker": true,
+      "runtimeDependency": false,
       "licenseFiles": [
         "README.md (license section)"
       ]
     },
     {
-      "name": "isarray",
+      "name": "jsonfile",
       "versions": [
-        "2.0.5"
+        "6.2.1"
       ],
       "license": "MIT",
-      "repository": "git://github.com/juliangruber/isarray.git",
-      "registry": "https://registry.npmjs.org/isarray",
+      "repository": "git@github.com:jprichardson/node-jsonfile.git",
+      "registry": "https://registry.npmjs.org/jsonfile",
       "bundledInExcelWorker": true,
+      "runtimeDependency": false,
       "licenseFiles": [
         "LICENSE"
       ]
@@ -1319,9 +473,11 @@
       "repository": "https://github.com/Stuk/jszip.git",
       "registry": "https://registry.npmjs.org/jszip",
       "bundledInExcelWorker": true,
+      "runtimeDependency": false,
       "licenseFiles": [
         "LICENSE.markdown"
-      ]
+      ],
+      "selectedLicense": "MIT"
     },
     {
       "name": "lazystream",
@@ -1331,7 +487,8 @@
       "license": "MIT",
       "repository": "https://github.com/jpommerening/node-lazystream.git",
       "registry": "https://registry.npmjs.org/lazystream",
-      "bundledInExcelWorker": false,
+      "bundledInExcelWorker": true,
+      "runtimeDependency": false,
       "licenseFiles": [
         "LICENSE"
       ]
@@ -1344,22 +501,10 @@
       "license": "MIT",
       "repository": "https://github.com/calvinmetcalf/lie.git",
       "registry": "https://registry.npmjs.org/lie",
-      "bundledInExcelWorker": false,
+      "bundledInExcelWorker": true,
+      "runtimeDependency": false,
       "licenseFiles": [
         "license.md"
-      ]
-    },
-    {
-      "name": "listenercount",
-      "versions": [
-        "1.0.1"
-      ],
-      "license": "ISC",
-      "repository": "git@github.com:jden/node-listenercount.git",
-      "registry": "https://registry.npmjs.org/listenercount",
-      "bundledInExcelWorker": false,
-      "licenseFiles": [
-        "LICENSE.md"
       ]
     },
     {
@@ -1370,7 +515,8 @@
       "license": "MIT",
       "repository": "lodash/lodash",
       "registry": "https://registry.npmjs.org/lodash.defaults",
-      "bundledInExcelWorker": false,
+      "bundledInExcelWorker": true,
+      "runtimeDependency": false,
       "licenseFiles": [
         "LICENSE"
       ]
@@ -1383,7 +529,8 @@
       "license": "MIT",
       "repository": "lodash/lodash",
       "registry": "https://registry.npmjs.org/lodash.difference",
-      "bundledInExcelWorker": false,
+      "bundledInExcelWorker": true,
+      "runtimeDependency": false,
       "licenseFiles": [
         "LICENSE"
       ]
@@ -1397,6 +544,7 @@
       "repository": "lodash/lodash",
       "registry": "https://registry.npmjs.org/lodash.escaperegexp",
       "bundledInExcelWorker": true,
+      "runtimeDependency": false,
       "licenseFiles": [
         "LICENSE"
       ]
@@ -1409,7 +557,8 @@
       "license": "MIT",
       "repository": "lodash/lodash",
       "registry": "https://registry.npmjs.org/lodash.flatten",
-      "bundledInExcelWorker": false,
+      "bundledInExcelWorker": true,
+      "runtimeDependency": false,
       "licenseFiles": [
         "LICENSE"
       ]
@@ -1423,6 +572,7 @@
       "repository": "lodash/lodash",
       "registry": "https://registry.npmjs.org/lodash.groupby",
       "bundledInExcelWorker": true,
+      "runtimeDependency": false,
       "licenseFiles": [
         "LICENSE"
       ]
@@ -1436,6 +586,7 @@
       "repository": "lodash/lodash",
       "registry": "https://registry.npmjs.org/lodash.isboolean",
       "bundledInExcelWorker": true,
+      "runtimeDependency": false,
       "licenseFiles": [
         "LICENSE"
       ]
@@ -1449,6 +600,7 @@
       "repository": "lodash/lodash",
       "registry": "https://registry.npmjs.org/lodash.isequal",
       "bundledInExcelWorker": true,
+      "runtimeDependency": false,
       "licenseFiles": [
         "LICENSE"
       ]
@@ -1462,6 +614,7 @@
       "repository": "lodash/lodash",
       "registry": "https://registry.npmjs.org/lodash.isfunction",
       "bundledInExcelWorker": true,
+      "runtimeDependency": false,
       "licenseFiles": [
         "LICENSE"
       ]
@@ -1475,6 +628,7 @@
       "repository": "lodash/lodash",
       "registry": "https://registry.npmjs.org/lodash.isnil",
       "bundledInExcelWorker": true,
+      "runtimeDependency": false,
       "licenseFiles": [
         "LICENSE"
       ]
@@ -1487,7 +641,8 @@
       "license": "MIT",
       "repository": "lodash/lodash",
       "registry": "https://registry.npmjs.org/lodash.isplainobject",
-      "bundledInExcelWorker": false,
+      "bundledInExcelWorker": true,
+      "runtimeDependency": false,
       "licenseFiles": [
         "LICENSE"
       ]
@@ -1501,6 +656,7 @@
       "repository": "lodash/lodash",
       "registry": "https://registry.npmjs.org/lodash.isundefined",
       "bundledInExcelWorker": true,
+      "runtimeDependency": false,
       "licenseFiles": [
         "LICENSE.txt"
       ]
@@ -1513,7 +669,8 @@
       "license": "MIT",
       "repository": "lodash/lodash",
       "registry": "https://registry.npmjs.org/lodash.union",
-      "bundledInExcelWorker": false,
+      "bundledInExcelWorker": true,
+      "runtimeDependency": false,
       "licenseFiles": [
         "LICENSE"
       ]
@@ -1527,19 +684,7 @@
       "repository": "lodash/lodash",
       "registry": "https://registry.npmjs.org/lodash.uniq",
       "bundledInExcelWorker": true,
-      "licenseFiles": [
-        "LICENSE"
-      ]
-    },
-    {
-      "name": "math-intrinsics",
-      "versions": [
-        "1.1.0"
-      ],
-      "license": "MIT",
-      "repository": "git+https://github.com/es-shims/math-intrinsics.git",
-      "registry": "https://registry.npmjs.org/math-intrinsics",
-      "bundledInExcelWorker": false,
+      "runtimeDependency": false,
       "licenseFiles": [
         "LICENSE"
       ]
@@ -1552,7 +697,8 @@
       "license": "ISC",
       "repository": "git://github.com/isaacs/minimatch.git",
       "registry": "https://registry.npmjs.org/minimatch",
-      "bundledInExcelWorker": false,
+      "bundledInExcelWorker": true,
+      "runtimeDependency": false,
       "licenseFiles": [
         "LICENSE"
       ]
@@ -1565,33 +711,22 @@
       "license": "ISC",
       "repository": "git://github.com/isaacs/minimatch.git",
       "registry": "https://registry.npmjs.org/minimatch",
-      "bundledInExcelWorker": false,
+      "bundledInExcelWorker": true,
+      "runtimeDependency": false,
       "licenseFiles": [
         "LICENSE"
       ]
     },
     {
-      "name": "minimist",
+      "name": "node-int64",
       "versions": [
-        "1.2.8"
+        "0.4.0"
       ],
       "license": "MIT",
-      "repository": "git://github.com/minimistjs/minimist.git",
-      "registry": "https://registry.npmjs.org/minimist",
-      "bundledInExcelWorker": false,
-      "licenseFiles": [
-        "LICENSE"
-      ]
-    },
-    {
-      "name": "mkdirp",
-      "versions": [
-        "0.5.6"
-      ],
-      "license": "MIT",
-      "repository": "https://github.com/substack/node-mkdirp.git",
-      "registry": "https://registry.npmjs.org/mkdirp",
-      "bundledInExcelWorker": false,
+      "repository": "https://github.com/broofa/node-int64",
+      "registry": "https://registry.npmjs.org/node-int64",
+      "bundledInExcelWorker": true,
+      "runtimeDependency": false,
       "licenseFiles": [
         "LICENSE"
       ]
@@ -1604,46 +739,8 @@
       "license": "MIT",
       "repository": "jonschlinkert/normalize-path",
       "registry": "https://registry.npmjs.org/normalize-path",
-      "bundledInExcelWorker": false,
-      "licenseFiles": [
-        "LICENSE"
-      ]
-    },
-    {
-      "name": "object-inspect",
-      "versions": [
-        "1.13.4"
-      ],
-      "license": "MIT",
-      "repository": "git://github.com/inspect-js/object-inspect.git",
-      "registry": "https://registry.npmjs.org/object-inspect",
-      "bundledInExcelWorker": false,
-      "licenseFiles": [
-        "LICENSE"
-      ]
-    },
-    {
-      "name": "object-keys",
-      "versions": [
-        "1.1.1"
-      ],
-      "license": "MIT",
-      "repository": "git://github.com/ljharb/object-keys.git",
-      "registry": "https://registry.npmjs.org/object-keys",
-      "bundledInExcelWorker": false,
-      "licenseFiles": [
-        "LICENSE"
-      ]
-    },
-    {
-      "name": "object.assign",
-      "versions": [
-        "4.1.7"
-      ],
-      "license": "MIT",
-      "repository": "git://github.com/ljharb/object.assign.git",
-      "registry": "https://registry.npmjs.org/object.assign",
-      "bundledInExcelWorker": false,
+      "bundledInExcelWorker": true,
+      "runtimeDependency": false,
       "licenseFiles": [
         "LICENSE"
       ]
@@ -1656,20 +753,8 @@
       "license": "ISC",
       "repository": "git://github.com/isaacs/once",
       "registry": "https://registry.npmjs.org/once",
-      "bundledInExcelWorker": false,
-      "licenseFiles": [
-        "LICENSE"
-      ]
-    },
-    {
-      "name": "own-keys",
-      "versions": [
-        "1.0.2"
-      ],
-      "license": "MIT",
-      "repository": "git+https://github.com/ljharb/own-keys.git",
-      "registry": "https://registry.npmjs.org/own-keys",
-      "bundledInExcelWorker": false,
+      "bundledInExcelWorker": true,
+      "runtimeDependency": false,
       "licenseFiles": [
         "LICENSE"
       ]
@@ -1682,7 +767,8 @@
       "license": "(MIT AND Zlib)",
       "repository": "nodeca/pako",
       "registry": "https://registry.npmjs.org/pako",
-      "bundledInExcelWorker": false,
+      "bundledInExcelWorker": true,
+      "runtimeDependency": false,
       "licenseFiles": [
         "LICENSE"
       ]
@@ -1695,22 +781,10 @@
       "license": "MIT",
       "repository": "sindresorhus/path-is-absolute",
       "registry": "https://registry.npmjs.org/path-is-absolute",
-      "bundledInExcelWorker": false,
+      "bundledInExcelWorker": true,
+      "runtimeDependency": false,
       "licenseFiles": [
         "license"
-      ]
-    },
-    {
-      "name": "possible-typed-array-names",
-      "versions": [
-        "1.1.0"
-      ],
-      "license": "MIT",
-      "repository": "git+https://github.com/ljharb/possible-typed-array-names.git",
-      "registry": "https://registry.npmjs.org/possible-typed-array-names",
-      "bundledInExcelWorker": false,
-      "licenseFiles": [
-        "LICENSE"
       ]
     },
     {
@@ -1722,6 +796,7 @@
       "repository": "https://github.com/calvinmetcalf/process-nextick-args.git",
       "registry": "https://registry.npmjs.org/process-nextick-args",
       "bundledInExcelWorker": true,
+      "runtimeDependency": false,
       "licenseFiles": [
         "license.md"
       ]
@@ -1735,6 +810,7 @@
       "repository": "git://github.com/nodejs/readable-stream",
       "registry": "https://registry.npmjs.org/readable-stream",
       "bundledInExcelWorker": true,
+      "runtimeDependency": false,
       "licenseFiles": [
         "LICENSE"
       ]
@@ -1748,6 +824,7 @@
       "repository": "git://github.com/nodejs/readable-stream",
       "registry": "https://registry.npmjs.org/readable-stream",
       "bundledInExcelWorker": true,
+      "runtimeDependency": false,
       "licenseFiles": [
         "LICENSE"
       ]
@@ -1760,59 +837,8 @@
       "license": "Apache-2.0",
       "repository": "git://github.com/Yqnn/node-readdir-glob.git",
       "registry": "https://registry.npmjs.org/readdir-glob",
-      "bundledInExcelWorker": false,
-      "licenseFiles": [
-        "LICENSE"
-      ]
-    },
-    {
-      "name": "reflect.getprototypeof",
-      "versions": [
-        "1.0.10"
-      ],
-      "license": "MIT",
-      "repository": "git+https://github.com/es-shims/Reflect.getPrototypeOf.git",
-      "registry": "https://registry.npmjs.org/reflect.getprototypeof",
-      "bundledInExcelWorker": false,
-      "licenseFiles": [
-        "LICENSE"
-      ]
-    },
-    {
-      "name": "regexp.prototype.flags",
-      "versions": [
-        "1.5.4"
-      ],
-      "license": "MIT",
-      "repository": "git://github.com/es-shims/RegExp.prototype.flags.git",
-      "registry": "https://registry.npmjs.org/regexp.prototype.flags",
-      "bundledInExcelWorker": false,
-      "licenseFiles": [
-        "LICENSE"
-      ]
-    },
-    {
-      "name": "rimraf",
-      "versions": [
-        "2.7.1"
-      ],
-      "license": "ISC",
-      "repository": "git://github.com/isaacs/rimraf.git",
-      "registry": "https://registry.npmjs.org/rimraf",
-      "bundledInExcelWorker": false,
-      "licenseFiles": [
-        "LICENSE"
-      ]
-    },
-    {
-      "name": "safe-array-concat",
-      "versions": [
-        "1.1.4"
-      ],
-      "license": "MIT",
-      "repository": "git+https://github.com/ljharb/safe-array-concat.git",
-      "registry": "https://registry.npmjs.org/safe-array-concat",
-      "bundledInExcelWorker": false,
+      "bundledInExcelWorker": true,
+      "runtimeDependency": false,
       "licenseFiles": [
         "LICENSE"
       ]
@@ -1826,6 +852,7 @@
       "repository": "git://github.com/feross/safe-buffer.git",
       "registry": "https://registry.npmjs.org/safe-buffer",
       "bundledInExcelWorker": true,
+      "runtimeDependency": false,
       "licenseFiles": [
         "LICENSE"
       ]
@@ -1839,32 +866,7 @@
       "repository": "git://github.com/feross/safe-buffer.git",
       "registry": "https://registry.npmjs.org/safe-buffer",
       "bundledInExcelWorker": true,
-      "licenseFiles": [
-        "LICENSE"
-      ]
-    },
-    {
-      "name": "safe-push-apply",
-      "versions": [
-        "1.0.0"
-      ],
-      "license": "MIT",
-      "repository": "git+https://github.com/ljharb/safe-push-apply.git",
-      "registry": "https://registry.npmjs.org/safe-push-apply",
-      "bundledInExcelWorker": false,
-      "licenseFiles": [
-        "LICENSE"
-      ]
-    },
-    {
-      "name": "safe-regex-test",
-      "versions": [
-        "1.1.0"
-      ],
-      "license": "MIT",
-      "repository": "git+https://github.com/ljharb/safe-regex-test.git",
-      "registry": "https://registry.npmjs.org/safe-regex-test",
-      "bundledInExcelWorker": false,
+      "runtimeDependency": false,
       "licenseFiles": [
         "LICENSE"
       ]
@@ -1878,47 +880,9 @@
       "repository": "https://github.com/lddubeau/saxes.git",
       "registry": "https://registry.npmjs.org/saxes",
       "bundledInExcelWorker": true,
+      "runtimeDependency": false,
       "licenseFiles": [
         "licenses/saxes-5.0.1-ISC.txt (upstream tag v5.0.1)"
-      ]
-    },
-    {
-      "name": "set-function-length",
-      "versions": [
-        "1.2.2"
-      ],
-      "license": "MIT",
-      "repository": "git+https://github.com/ljharb/set-function-length.git",
-      "registry": "https://registry.npmjs.org/set-function-length",
-      "bundledInExcelWorker": false,
-      "licenseFiles": [
-        "LICENSE"
-      ]
-    },
-    {
-      "name": "set-function-name",
-      "versions": [
-        "2.0.2"
-      ],
-      "license": "MIT",
-      "repository": "git+https://github.com/ljharb/set-function-name.git",
-      "registry": "https://registry.npmjs.org/set-function-name",
-      "bundledInExcelWorker": false,
-      "licenseFiles": [
-        "LICENSE"
-      ]
-    },
-    {
-      "name": "set-proto",
-      "versions": [
-        "1.0.0"
-      ],
-      "license": "MIT",
-      "repository": "git+https://github.com/ljharb/set-proto.git",
-      "registry": "https://registry.npmjs.org/set-proto",
-      "bundledInExcelWorker": false,
-      "licenseFiles": [
-        "LICENSE"
       ]
     },
     {
@@ -1929,74 +893,10 @@
       "license": "MIT",
       "repository": "YuzuJS/setImmediate",
       "registry": "https://registry.npmjs.org/setimmediate",
-      "bundledInExcelWorker": false,
+      "bundledInExcelWorker": true,
+      "runtimeDependency": false,
       "licenseFiles": [
         "LICENSE.txt"
-      ]
-    },
-    {
-      "name": "side-channel",
-      "versions": [
-        "1.1.1"
-      ],
-      "license": "MIT",
-      "repository": "git+https://github.com/ljharb/side-channel.git",
-      "registry": "https://registry.npmjs.org/side-channel",
-      "bundledInExcelWorker": false,
-      "licenseFiles": [
-        "LICENSE"
-      ]
-    },
-    {
-      "name": "side-channel-list",
-      "versions": [
-        "1.0.1"
-      ],
-      "license": "MIT",
-      "repository": "git+https://github.com/ljharb/side-channel-list.git",
-      "registry": "https://registry.npmjs.org/side-channel-list",
-      "bundledInExcelWorker": false,
-      "licenseFiles": [
-        "LICENSE"
-      ]
-    },
-    {
-      "name": "side-channel-map",
-      "versions": [
-        "1.0.1"
-      ],
-      "license": "MIT",
-      "repository": "git+https://github.com/ljharb/side-channel-map.git",
-      "registry": "https://registry.npmjs.org/side-channel-map",
-      "bundledInExcelWorker": false,
-      "licenseFiles": [
-        "LICENSE"
-      ]
-    },
-    {
-      "name": "side-channel-weakmap",
-      "versions": [
-        "1.0.2"
-      ],
-      "license": "MIT",
-      "repository": "git+https://github.com/ljharb/side-channel-weakmap.git",
-      "registry": "https://registry.npmjs.org/side-channel-weakmap",
-      "bundledInExcelWorker": false,
-      "licenseFiles": [
-        "LICENSE"
-      ]
-    },
-    {
-      "name": "stop-iteration-iterator",
-      "versions": [
-        "1.1.0"
-      ],
-      "license": "MIT",
-      "repository": "git+https://github.com/ljharb/stop-iteration-iterator.git",
-      "registry": "https://registry.npmjs.org/stop-iteration-iterator",
-      "bundledInExcelWorker": false,
-      "licenseFiles": [
-        "LICENSE"
       ]
     },
     {
@@ -2008,6 +908,7 @@
       "repository": "git://github.com/nodejs/string_decoder.git",
       "registry": "https://registry.npmjs.org/string_decoder",
       "bundledInExcelWorker": true,
+      "runtimeDependency": false,
       "licenseFiles": [
         "LICENSE"
       ]
@@ -2021,45 +922,7 @@
       "repository": "git://github.com/nodejs/string_decoder.git",
       "registry": "https://registry.npmjs.org/string_decoder",
       "bundledInExcelWorker": true,
-      "licenseFiles": [
-        "LICENSE"
-      ]
-    },
-    {
-      "name": "string.prototype.trim",
-      "versions": [
-        "1.2.11"
-      ],
-      "license": "MIT",
-      "repository": "git://github.com/es-shims/String.prototype.trim.git",
-      "registry": "https://registry.npmjs.org/string.prototype.trim",
-      "bundledInExcelWorker": false,
-      "licenseFiles": [
-        "LICENSE"
-      ]
-    },
-    {
-      "name": "string.prototype.trimend",
-      "versions": [
-        "1.0.10"
-      ],
-      "license": "MIT",
-      "repository": "git://github.com/es-shims/String.prototype.trimEnd.git",
-      "registry": "https://registry.npmjs.org/string.prototype.trimend",
-      "bundledInExcelWorker": false,
-      "licenseFiles": [
-        "LICENSE"
-      ]
-    },
-    {
-      "name": "string.prototype.trimstart",
-      "versions": [
-        "1.0.8"
-      ],
-      "license": "MIT",
-      "repository": "git://github.com/es-shims/String.prototype.trimStart.git",
-      "registry": "https://registry.npmjs.org/string.prototype.trimstart",
-      "bundledInExcelWorker": false,
+      "runtimeDependency": false,
       "licenseFiles": [
         "LICENSE"
       ]
@@ -2072,7 +935,8 @@
       "license": "MIT",
       "repository": "git+https://github.com/mafintosh/tar-stream.git",
       "registry": "https://registry.npmjs.org/tar-stream",
-      "bundledInExcelWorker": false,
+      "bundledInExcelWorker": true,
+      "runtimeDependency": false,
       "licenseFiles": [
         "LICENSE"
       ]
@@ -2085,98 +949,22 @@
       "license": "MIT",
       "repository": "https://github.com/raszi/node-tmp.git",
       "registry": "https://registry.npmjs.org/tmp",
-      "bundledInExcelWorker": false,
+      "bundledInExcelWorker": true,
+      "runtimeDependency": false,
       "licenseFiles": [
         "LICENSE"
       ]
     },
     {
-      "name": "traverse",
+      "name": "universalify",
       "versions": [
-        "0.3.10"
+        "2.0.1"
       ],
       "license": "MIT",
-      "repository": "git://github.com/ljharb/js-traverse.git",
-      "registry": "https://registry.npmjs.org/traverse",
-      "bundledInExcelWorker": false,
-      "licenseFiles": [
-        "LICENSE"
-      ]
-    },
-    {
-      "name": "typed-array-buffer",
-      "versions": [
-        "1.0.3"
-      ],
-      "license": "MIT",
-      "repository": "git+https://github.com/inspect-js/typed-array-buffer.git",
-      "registry": "https://registry.npmjs.org/typed-array-buffer",
-      "bundledInExcelWorker": false,
-      "licenseFiles": [
-        "LICENSE"
-      ]
-    },
-    {
-      "name": "typed-array-byte-length",
-      "versions": [
-        "1.0.3"
-      ],
-      "license": "MIT",
-      "repository": "git+https://github.com/inspect-js/typed-array-byte-length.git",
-      "registry": "https://registry.npmjs.org/typed-array-byte-length",
-      "bundledInExcelWorker": false,
-      "licenseFiles": [
-        "LICENSE"
-      ]
-    },
-    {
-      "name": "typed-array-byte-offset",
-      "versions": [
-        "1.0.5"
-      ],
-      "license": "MIT",
-      "repository": "git+https://github.com/inspect-js/typed-array-byte-offset.git",
-      "registry": "https://registry.npmjs.org/typed-array-byte-offset",
-      "bundledInExcelWorker": false,
-      "licenseFiles": [
-        "LICENSE"
-      ]
-    },
-    {
-      "name": "typed-array-length",
-      "versions": [
-        "1.0.8"
-      ],
-      "license": "MIT",
-      "repository": "git+https://github.com/inspect-js/typed-array-length.git",
-      "registry": "https://registry.npmjs.org/typed-array-length",
-      "bundledInExcelWorker": false,
-      "licenseFiles": [
-        "LICENSE"
-      ]
-    },
-    {
-      "name": "typedarray.prototype.slice",
-      "versions": [
-        "1.0.6"
-      ],
-      "license": "MIT",
-      "repository": "git+https://github.com/es-shims/TypedArray.prototype.slice.git",
-      "registry": "https://registry.npmjs.org/typedarray.prototype.slice",
-      "bundledInExcelWorker": false,
-      "licenseFiles": [
-        "LICENSE"
-      ]
-    },
-    {
-      "name": "unbox-primitive",
-      "versions": [
-        "1.1.0"
-      ],
-      "license": "MIT",
-      "repository": "git+https://github.com/ljharb/unbox-primitive.git",
-      "registry": "https://registry.npmjs.org/unbox-primitive",
-      "bundledInExcelWorker": false,
+      "repository": "git+https://github.com/RyanZim/universalify.git",
+      "registry": "https://registry.npmjs.org/universalify",
+      "bundledInExcelWorker": true,
+      "runtimeDependency": false,
       "licenseFiles": [
         "LICENSE"
       ]
@@ -2184,12 +972,13 @@
     {
       "name": "unzipper",
       "versions": [
-        "0.10.14"
+        "0.12.5"
       ],
       "license": "MIT",
       "repository": "https://github.com/ZJONSSON/node-unzipper.git",
       "registry": "https://registry.npmjs.org/unzipper",
-      "bundledInExcelWorker": false,
+      "bundledInExcelWorker": true,
+      "runtimeDependency": false,
       "licenseFiles": [
         "LICENSE"
       ]
@@ -2203,6 +992,7 @@
       "repository": "git://github.com/TooTallNate/util-deprecate.git",
       "registry": "https://registry.npmjs.org/util-deprecate",
       "bundledInExcelWorker": true,
+      "runtimeDependency": false,
       "licenseFiles": [
         "LICENSE"
       ]
@@ -2210,66 +1000,15 @@
     {
       "name": "uuid",
       "versions": [
-        "8.3.2"
+        "11.1.1"
       ],
       "license": "MIT",
       "repository": "https://github.com/uuidjs/uuid.git",
       "registry": "https://registry.npmjs.org/uuid",
       "bundledInExcelWorker": true,
+      "runtimeDependency": false,
       "licenseFiles": [
         "LICENSE.md"
-      ]
-    },
-    {
-      "name": "which-boxed-primitive",
-      "versions": [
-        "1.1.1"
-      ],
-      "license": "MIT",
-      "repository": "git+https://github.com/inspect-js/which-boxed-primitive.git",
-      "registry": "https://registry.npmjs.org/which-boxed-primitive",
-      "bundledInExcelWorker": false,
-      "licenseFiles": [
-        "LICENSE"
-      ]
-    },
-    {
-      "name": "which-builtin-type",
-      "versions": [
-        "1.2.1"
-      ],
-      "license": "MIT",
-      "repository": "git+https://github.com/inspect-js/which-builtin-type.git",
-      "registry": "https://registry.npmjs.org/which-builtin-type",
-      "bundledInExcelWorker": false,
-      "licenseFiles": [
-        "LICENSE"
-      ]
-    },
-    {
-      "name": "which-collection",
-      "versions": [
-        "1.0.2"
-      ],
-      "license": "MIT",
-      "repository": "git+https://github.com/inspect-js/which-collection.git",
-      "registry": "https://registry.npmjs.org/which-collection",
-      "bundledInExcelWorker": false,
-      "licenseFiles": [
-        "LICENSE"
-      ]
-    },
-    {
-      "name": "which-typed-array",
-      "versions": [
-        "1.1.24"
-      ],
-      "license": "MIT",
-      "repository": "git://github.com/inspect-js/which-typed-array.git",
-      "registry": "https://registry.npmjs.org/which-typed-array",
-      "bundledInExcelWorker": false,
-      "licenseFiles": [
-        "LICENSE"
       ]
     },
     {
@@ -2280,7 +1019,8 @@
       "license": "ISC",
       "repository": "https://github.com/npm/wrappy",
       "registry": "https://registry.npmjs.org/wrappy",
-      "bundledInExcelWorker": false,
+      "bundledInExcelWorker": true,
+      "runtimeDependency": false,
       "licenseFiles": [
         "LICENSE"
       ]
@@ -2294,6 +1034,7 @@
       "repository": "https://github.com/lddubeau/xmlchars.git",
       "registry": "https://registry.npmjs.org/xmlchars",
       "bundledInExcelWorker": true,
+      "runtimeDependency": false,
       "licenseFiles": [
         "LICENSE"
       ]
@@ -2306,7 +1047,8 @@
       "license": "MIT",
       "repository": "https://github.com/archiverjs/node-zip-stream.git",
       "registry": "https://registry.npmjs.org/zip-stream",
-      "bundledInExcelWorker": false,
+      "bundledInExcelWorker": true,
+      "runtimeDependency": false,
       "licenseFiles": [
         "LICENSE"
       ]

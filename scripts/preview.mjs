@@ -45,6 +45,8 @@ const lifecycle=new Lifecycle(()=>{}),ticks=[];
 const memo={get:(key,fallback)=>{try{return JSON.parse(localStorage.getItem(key))??fallback;}catch{return fallback;}},set:(key,value)=>localStorage.setItem(key,JSON.stringify(value))};
 const ctx=createPanelContext({pageId:'world:context-meter',panelId:panel,root:document.querySelector('#panel'),lifecycle,overlayHost:document.querySelector('#overlays'),refresh:async()=>{},addLeaveGuard:()=>({dispose(){}}),memo,
   createSocket:()=>{throw new Error('No socket needed by this panel');},wsUrl:path=>path,onError:()=>{},mountSlot:async()=>({dispose(){}})});
+window.__pendingPanelRequests=0;
+for(const method of ['invoke','invokeBinary']){const original=ctx[method];ctx[method]=async(...args)=>{window.__pendingPanelRequests++;try{return await original.apply(ctx,args);}finally{window.__pendingPanelRequests--;}};}
 const interval=ctx.interval;ctx.interval=(fn,ms)=>{ticks.push(fn);return interval(fn,ms);};
 window.addEventListener('pagehide',()=>lifecycle.dispose(),{once:true});
 window.demo={tick:()=>ticks.forEach(fn=>fn()),addRow:async()=>{const response=await fetch('/preview/add-row',{method:'POST'});if(!response.ok)throw new Error('Synthetic update failed');},unmount:()=>lifecycle.dispose()};
@@ -156,7 +158,7 @@ try{
   await evaluate(`document.querySelector('[data-action=export]').click()`);
   await until(()=>downloaded);
   const saved=JSON.parse(await readFile(join(downloadPath,download.suggestedFilename),'utf8'));
-  assert.equal(saved.extension.displayName,'token计数');assert.equal(saved.extension.version,'0.5.1');
+  assert.equal(saved.extension.displayName,'token计数');assert.equal(saved.extension.version,'0.5.2');
   assert.equal(saved.static.rows.length,7);assert.equal(saved.runtime.requests.length,18);assert.equal(saved.runtime.tools.length,19);
   assert.equal(saved.runtime.requests[0].totalTokens,runtime.requests[0].input+runtime.requests[0].output);
   assert.equal(await evaluate(`document.querySelector('.cm-export-note').textContent`),'已生成导出文件。');
@@ -172,7 +174,7 @@ try{
   checks.excel.declaredAssetsOnly=true;
   checks.excel.browserWorkerAttempts=await evaluate('window.__browserWorkerAttempts');assert.equal(checks.excel.browserWorkerAttempts,0);
   checks.excel.csp=csp;assert.deepEqual(await evaluate('window.__cspViolations'),[]);
-  assert(calls.includes('export.xlsx'));assert.equal(await evaluate(`document.querySelector('.cm-export-note').dataset.version`),'0.5.1');
+  assert(calls.includes('export.xlsx'));assert.equal(await evaluate(`document.querySelector('.cm-export-note').dataset.version`),'0.5.2');
   assert.equal(await evaluate('document.querySelectorAll("details[open]").length'),0);
   checks.simple=await evaluate(`({columns:document.querySelectorAll('.cm-merged-table>thead>tr>th').length,requestRows:document.querySelectorAll('tr[data-kind=request]').length,
     total:document.querySelector('tr[data-kind=request] [data-column=total]').textContent,bodyFits:document.documentElement.scrollWidth<=innerWidth})`);
@@ -222,7 +224,7 @@ try{
   await until(()=>evaluate(`(()=>{const button=document.querySelectorAll('.cm-controls button')[1];if(button.disabled)return false;button.click();return true;})()`));
   await until(()=>evaluate(`document.querySelector('.cm-status').dataset.state==='stopped'`));
   await evaluate(`document.querySelectorAll('.cm-controls button')[2].click();document.querySelector('.cm-history').open=true`);
-  await until(()=>evaluate(`!!document.querySelector('[data-history-view]')`));
+  await until(()=>evaluate(`!!document.querySelector('[data-history-view]')&&window.__pendingPanelRequests===0&&document.querySelector('.cm-status').dataset.state==='off'`));
   await evaluate(`document.querySelector('[data-history-view="${seedId}"]').click()`);await until(()=>evaluate(`!document.querySelector('.cm-history-banner').hidden`));
   assert.equal(await evaluate(`document.querySelectorAll('tr[data-kind=request]').length`),18);
   await evaluate(`document.querySelector('[data-view=pie]').click()`);

@@ -1,15 +1,17 @@
 # 验证记录
 
-扩展版本：0.5.1。目标：Coopanion v0.2.13 / Cortico v0.2.9 / World API 6。
+扩展版本：0.5.2。目标：Coopanion v0.2.13 / Cortico v0.2.9 / World API 6。
 环境：Windows，Node.js v24.22.1，项目局部 Corepack 0.36.0，pnpm 11.28.6。
 
 ## 已执行
 
 | 检查 | 结果 |
 |---|---|
-| `corepack pnpm install --store-dir ../.tooling/pnpm-store` | 通过，锁定 `@huggingface/tokenizers@0.2.0` 和 `exceljs@4.4.0`，更新依赖锁文件 |
+| `corepack pnpm install --store-dir ../.tooling/pnpm-store` | 通过；运行依赖为 tokenizers 0.2.0，开发依赖 ExcelJS 4.4.0／Vitest 5.0.5／Vite 8.3.5；固定 UUID 11.1.1、unzipper 0.12.5 |
 | `pnpm typecheck` | 通过，服务端与含 DOM 的前端分别检查 |
-| `pnpm build` | 通过，生成前端、Node 观察线程和 `dist/xlsx-export-worker.mjs`；无前端 Excel 线程或虚拟模块 |
+| `pnpm build` | 通过，生成前端、Node 观察线程及完整打包的 Excel Node 线程；不使用旧 ExcelJS 浏览器包 |
+| `node scripts/licenses.mjs` | 通过；75 个包均有许可来源与文本，含 74 个实际 Excel 打包依赖及运行时分词库 |
+| `pnpm check:security` | 通过；生产 1 个依赖／全量 391 个依赖，已知告警均为 0；构建输入、锁文件与产物校验一致 |
 | `pnpm test` | 122 项通过，21 个测试文件 |
 | `node scripts/official-check.mjs --describe` | 通过：工具 0、事件 0、提示词 0 |
 | `pnpm check:extension` | 通过：World API 6、id、前端产物、默认构造、自描述、标签和版本日志 |
@@ -128,3 +130,18 @@
 - 合成数据下核对中文两页桌面与英文两页 390px 窄窗口，长文字自然换行、无整页横向溢出；目视检查 `.preview/static.png`、`runtime-simple.png`、`narrow.png` 和 `static-narrow-en.png`。机器记录新增 `copy` 字段，初始导出提示高度为 0。
 - 全部 122 项／21 文件测试、类型检查、构建、依赖安装、自描述生成与官方扩展校验通过。原有真实 JSON／Excel 下载和工作簿重读、历史、排序、冻结列、实时刷新、饼图及严格 CSP 检查保持通过。
 - 本轮仅改前端文字、排版、提示及版本／说明，不改计量、采集、缓存、接口或导出数据。验收未读取真实运行记录，未打开实际 Coopanion 或发布 npm。
+
+## v0.5.2 依赖安全与许可验证
+
+- 同步远端 main，并保留维护者在网页上精简 README 的修改。版本升至 0.5.2，包名／id／World API／采集／缓存／导出接口不变。
+- 固定 Vitest 5.0.5、Vite 8.3.5 和 UUID 11.1.1，unzipper 更新至 0.12.5。122 项／21 文件测试全部通过，保留原有实质断言与禁止联网／文件访问防护；没有通过忽略告警或降低检查等级通过验收。
+- Excel 改用官方 Node 入口并完整打包为约 1.8 MiB 的工作线程，ExcelJS 转为开发依赖。实际构建输入 454 个、第三方包 74 个，外部依赖仅 Node 内置模块；构建记录不含旧 ExcelJS 浏览器包或旧 UUID。
+- 升级的解压库有可选 S3 入口，构建时使用本地拒绝实现替代，不引入 AWS SDK，不新增网络功能。运行时仍只使用白名单统计和 writeBuffer，在内存生成文件。
+- 真实构建线程的防护测试只允许加载自身线程和包元数据；禁止 node_modules 数据／库文件读取、源文件读取、输出文件、网络及子进程。生成成功，禁止操作和正文输出均为 0。
+- 实际打包文件在仓库外的独立临时目录运行，未安装 ExcelJS 或其他开发依赖；中英文六张工作表均可重读，205 条请求保留，输入 100＋输出 20＝120，缺失主计数为空，标准输出／错误为空。
+- 生产仅 1 个依赖、全量含开发共 391 个依赖，当次所有级别的已知漏洞查询均为 0。完整图中 buffers／binary／tinypool 已移除；不能仅根据生产依赖减少而宣布修复，实际打包依赖同时包含在全量审计和来源检查内。
+- 运行时分词库加上实际 Excel 打包包共 75 个身份均附许可与来源，Unknown 为 0；保留上游文本、JSZip 的 MIT 选项以及额外 saxes ISC 原文。许可清单和构建校验见 provenance 目录。
+- 安装包共 65 个文件，未发现本机用户名、主机名、用户目录、项目绝对路径或常见密钥特征，也不包含开发缓存、真实运行数据或安装钩子。匹配到的署名邮箱位于上游许可／依赖代码，不是本机账号信息。
+- 严格桌面 CSP 的真实二进制导出链路继续通过：JSON／Excel 下载及六表重读，三种视图、历史、排序、冻结列、实时刷新和中英文窄窗口均验证。浏览器 Worker 调用与外部页面请求均为 0。预览脚本等待真实历史刷新请求完成后再点击，修复测试时序问题，未改变产品逻辑。
+- 少量上游弃用提示仍存在，包括 glob、inflight、lodash.isequal、whatwg-encoding；与本次已知漏洞查询应区分，不宣称所有警告消失、永久零风险或官方认证。
+- 更新安全／隐私说明，继续明确明文统计、分享元数据和访问时过期清理边界；不增加加密或更改历史行为。本轮不读取真实运行记录、不发布 npm、不申请市场同步。

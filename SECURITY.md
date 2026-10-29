@@ -1,27 +1,29 @@
 # 安全与隐私 / Security and privacy
 
-## 当前状态：源码预览，依赖整改尚未完成
+## 当前状态：v0.5.2 已处理本轮已知告警
 
-2026-10-29 对 v0.5.1 源码、构建文件和本机生成的安装包进行了检查。未发现扩展主动窃取、遥测或上传数据的逻辑；当次包内 61 个文件未命中本机个人标识和常见密钥特征。既有 122 项测试通过。**这些结果不等于零漏洞、正式安全认证或所有环境均兼容。**
+2026-10-29 对 v0.5.2 完成生产、完整开发依赖及实际 Excel 线程构建输入检查。当次生产依赖 1 个、全量依赖 391 个，已知漏洞查询均为 0；74 个实际随 Excel 线程打包的依赖连同运行时分词库共 75 个包均已记录许可和来源。既有 122 项测试通过。**这些结果不等于零风险、正式安全认证或所有环境均兼容。**
+
+可复核记录：[当次安全检查](provenance/security-check.json)、[Excel 构建输入及校验](provenance/excel-bundle.json)、[运行时与打包依赖许可](provenance/production-dependencies.json)。开发者运行 `pnpm build`、`node scripts/licenses.mjs`、`pnpm check:security` 可重新检查；查询只发送公开依赖名称和版本。
 
 本次只公开 GitHub 源码，不发布 npm、不申请市场同步或官方认证。
 
-## 已知依赖问题
+## 上轮问题及本次处理
 
-| 范围 | 当次检查结果 | 说明 |
+| 范围 | v0.5.1 旧检查结果 | v0.5.2 处理 |
 |---|---|---|
-| 生产依赖 | 0 严重、0 高危、1 中危、0 低危 | ExcelJS → uuid 8.3.2；当前检查到的调用使用 v4，未发现受影响接口的触发路径，但仍需评估处理。 |
-| 全部依赖，包含开发环境 | 3 严重、1 高危、11 中危、1 低危 | 已包含上一行；不要再相加。主要来自 Vitest、Tinypool、Vite 等测试／开发工具及关联链路。 |
-| 许可资料 | buffers 0.1.1：Unknown | 不在当前使用的 ExcelJS 浏览器代码中，但仍在安装依赖链，许可需核实或清理。 |
+| 生产依赖 | 1 中危 | 从官方 Node 入口重建 Excel 线程，实际打包 uuid 11.1.1；ExcelJS 转为构建依赖，不再加载旧浏览器分发包。 |
+| 全部依赖，包含开发环境 | 3 严重、1 高危、11 中危、1 低危 | 固定 Vitest 5.0.5、Vite 8.3.5，移除旧 Tinypool 链路；当次全量查询为 0。 |
+| 许可资料 | buffers 0.1.1：Unknown | 更新 unzipper 至 0.12.5，移除 binary／buffers，依赖树及实际打包输入均已核对。 |
 
 重点公告：
 
-- [UUID 缓冲区边界问题](https://github.com/uuidjs/uuid/security/advisories/GHSA-w5hq-g745-h8pq)：影响 v3／v5／v6 接口的特定用法，不是本扩展已泄露数据的证据。ExcelJS 的浏览器发行版含预打包代码，只覆盖外部 uuid 版本不能自动替换其中内容。
-- [Vitest UI／API 文件读取与执行](https://github.com/advisories/GHSA-5xrq-8626-4rwp)：当前脚本为 `vitest run`，没有启用 UI／API，但旧版开发工具链仍需升级。
-- [Tinypool Worker 选项问题](https://github.com/advisories/GHSA-5gmw-xhrv-c9v3)、[Tinypool run 选项问题](https://github.com/advisories/GHSA-85c8-ppgw-ccpr)：存在原型污染等触发前提，涉及开发机／CI；不能忽略严重告警，也不能仅凭命中版本认定已经被利用。
-- [Vite／launch-editor Windows 路径处理](https://github.com/advisories/GHSA-587h-7wmj-h5pm)：涉及受影响开发服务及编辑器入口；不要将旧开发服务对外开放。
+- [UUID 缓冲区边界问题](https://github.com/uuidjs/uuid/security/advisories/GHSA-w5hq-g745-h8pq)：影响 v3／v5／v6 接口的特定用法；本次替换实际运行代码，而非仅隐藏依赖告警。
+- [Vitest UI／API 文件读取与执行](https://github.com/advisories/GHSA-5xrq-8626-4rwp)、[Tinypool Worker 选项问题](https://github.com/advisories/GHSA-5gmw-xhrv-c9v3)、[Tinypool run 选项问题](https://github.com/advisories/GHSA-85c8-ppgw-ccpr)、[Vite／launch-editor Windows 路径处理](https://github.com/advisories/GHSA-587h-7wmj-h5pm)：通过工具链升级处理，仍只运行批量测试，不开启 UI／API 开发服务。
 
-整改前不建议把此版本作为已完成安全验收的正式发行版。后续需要选用兼容的修复版本／替代分发文件，更新锁文件和许可记录，并重新验证生产与开发依赖、构建、测试、导出和宿主安装。本次源码提交未声称完成这些整改。
+安装时仍可能看到少量上游的弃用提示（如 glob、inflight、lodash.isequal、whatwg-encoding）；它们不等同于本次漏洞数据库命中的告警，本次没有通过忽略告警来通过检查。后续仍应关注上游维护状态和新公告。
+
+升级的 unzipper 含可选 S3 读取入口，构建时明确替换为禁止访问的本地实现，不安装 AWS SDK、不新增云服务能力。Excel 线程只接收白名单统计，在内存生成文件，外部导入仅限 Node 内置模块。采集、历史格式、数据保留与分享边界不变。
 
 ## 会读取什么
 
@@ -43,6 +45,6 @@
 
 ## English
 
-This is a source preview, not an npm release or security certification. The 2026-10-29 review found no active data exfiltration in the inspected extension code or local tarball, but production/development dependency advisories and one unclear transitive license remain open. The complete dependency audit reported 3 critical, 1 high, 11 moderate and 1 low package/advisory records; the production-only audit reported one moderate record. Exploit prerequisites matter; an advisory is not evidence that this extension has been exploited.
+This is a source preview, not an npm release or security certification. Version 0.5.2 rebuilds the Excel worker from the official Node entry with uuid 11.1.1, updates unzipper to 0.12.5 to remove binary/buffers, and upgrades Vitest/Vite to 5.0.5/8.3.5. The 2026-10-29 production and full dependency audits report zero known advisories; actual bundle inputs and license texts are also checked. This is a dated database result, not a zero-risk guarantee. Optional cloud access is disabled; no AWS SDK is added. Upstream deprecation notices may remain.
 
 Observation is off by default. When enabled, new host records may temporarily contain chat and sensitive tool results; bodies are processed locally and not retained or uploaded. History and exports contain usage metadata, are not fully anonymous, and local history is plaintext. Expiry cleanup runs on save/access; stopping/uninstalling is not a timed-erasure guarantee. Review files before sharing and never post secrets or real conversation logs in public issues.

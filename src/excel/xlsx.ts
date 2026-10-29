@@ -1,4 +1,4 @@
-import ExcelJS from 'exceljs/dist/exceljs.min.js';
+import ExcelJS from 'exceljs';
 import type {StatisticsExport} from '../export.ts';
 type Cell=string|number|boolean|null;
 const labels:Record<string,string>={id:'标识',run:'运行标识',round:'轮次',responseId:'响应标识',callId:'调用标识',role:'角色／来源',model:'模型',

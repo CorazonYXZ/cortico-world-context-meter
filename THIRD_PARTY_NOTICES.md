@@ -35,13 +35,14 @@ World template and unmodified official `extension-check.ts` / `extension-describ
 
 Independent test fixtures were generated using Hugging Face `tokenizers@0.23.2` (Rust Node bindings, Apache-2.0) on public synthetic strings. That native reference implementation is not a runtime dependency and is not shipped in the extension package. Runtime and development dependency versions/integrity are recorded in `pnpm-lock.yaml`; their packages retain their respective licenses.
 
-## ExcelJS browser distribution — MIT
+## ExcelJS official Node entry, bundled for local export — MIT
 
 - Package: `exceljs@4.4.0`; repository: https://github.com/exceljs/exceljs/tree/v4.4.0.
-- Implementation: the package's official `dist/exceljs.min.js` is imported by the local Node Excel worker. This reuses the same browser distribution and workbook logic without creating a browser Worker, changing the desktop CSP or loading remote scripts.
+- Implementation since v0.5.2: the official Node entry is bundled into `dist/xlsx-export-worker.mjs` together with its resolved dependencies. ExcelJS is a development dependency; consumers need no separately installed ExcelJS to run the worker. The old prebuilt browser distribution is not used. No browser Worker, CSP relaxation or remote script is added.
 - Copyright (c) 2014-2019 Guyon Roche. Full license: `licenses/ExcelJS-MIT.txt`.
-- Source versions and licenses of production dependencies are recorded in `provenance/production-dependencies.json`; bundled browser sources are distinguished from Node-only dependencies using the official source map. Available upstream notices and license sections are preserved in `licenses/Production-dependencies.txt`.
+- `provenance/production-dependencies.json` inventories both the installed runtime tokenizer and actual Excel build inputs. `provenance/excel-bundle.json` records the worker SHA-256, individual input hashes and external Node built-ins. The inventory includes 75 package identities (74 bundled plus the runtime tokenizer), with upstream notices preserved in `licenses/Production-dependencies.txt`.
 - JSZip is used under its MIT option. `saxes@5.0.1` omits its license file from the npm archive; the original ISC notice is retained from https://raw.githubusercontent.com/lddubeau/saxes/v5.0.1/LICENSE in `licenses/saxes-5.0.1-ISC.txt`.
-- `buffers@0.1.1` has no license declaration in its npm archive (recorded as Unknown); it is a Node-only transitive dependency and is absent from the browser worker's source map. Its code is not copied into this extension bundle. Unknown metadata is not relabeled as MIT.
+- UUID versions below the fix are resolved to `uuid@11.1.1` (MIT), including the actual rebuilt worker code. ExcelJS's unzipper dependency is resolved to `unzipper@0.12.5` (MIT), removing the legacy binary/buffers chain. No unclear buffers license is relabeled as MIT; that package is removed from the dependency graph and bundle.
+- unzipper's optional S3 SDK import is replaced at build time by original application code in `src/excel/no-cloud.cjs` that explicitly denies cloud access. No AWS SDK or cloud capability is included. The upstream ExcelJS/unzipper source files themselves are not edited.
 - The original workbook layout, history manager and sorting code are MIT application code. No third-party visual assets were added.
 - Desktop CSP regression reference: https://github.com/Pal-AI-Lab/Coopanion/blob/v0.2.13/app/main.cjs (`WINDOW_CSP`). The synthetic browser test uses the same policy string, with no `unsafe-inline` or Blob-worker allowance. It uses Cortico's MIT `createPanelContext`, lifecycle and binary-result protocol directly; no Coopanion application code is modified or bundled into the extension.
